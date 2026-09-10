@@ -1,0 +1,21 @@
+section,start_station,end_station,route,distance_km
+S01,Station_1,Station_2,Eastern Corridor,25.3
+S02,Station_2,Station_3,Eastern Corridor,8.7
+S03,Station_3,Station_4,Eastern Corridor,15.4
+S04,Station_4,Station_5,Eastern Corridor,14.0
+S05,Station_5,Station_6,Eastern Corridor,27.9
+S06,Station_6,Station_7,Eastern Corridor,26.3
+S07,Station_7,Station_8,Eastern Corridor,32.1
+S08,Station_8,Station_9,Eastern Corridor,10.3
+S09,Station_9,Station_10,Eastern Corridor,19.4
+S10,Station_10,Station_11,Eastern Corridor,8.8
+S11,Station_11,Station_12,Eastern Corridor,13.9
+S12,Station_12,Station_13,Eastern Corridor,21.6
+S13,Station_13,Station_14,Eastern Corridor,8.7
+S14,Station_14,Station_15,Eastern Corridor,13.4
+S15,Station_15,Station_16,Eastern Corridor,25.5
+S16,Station_16,Station_17,Eastern Corridor,22.7
+S17,Station_17,Station_18,Eastern Corridor,14.0
+S18,Station_18,Station_19,Eastern Corridor,23.9
+S19,Station_19,Station_20,Eastern Corridor,29.9
+S20,Station_20,Station_21,Eastern Corridor,8.2
