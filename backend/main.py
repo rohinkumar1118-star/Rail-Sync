@@ -9,14 +9,14 @@ DATA = ROOT / "data"
 OUT = ROOT / "outputs"
 
 app = FastAPI(
-    title="RAIL Automatic Block Planning API",
+    title="RAIL Sync",
     description="Backend API for the SIH AI-Powered Automatic Block Planning prototype.",
     version="1.0.0"
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://rail-sync-rhn5.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,7 +38,7 @@ def clean_records(df):
 @app.get("/")
 def root():
     return {
-        "message": "RAIL Automatic Block Planning API is running",
+        "message": "RAIL Sync API is running",
         "docs": "/docs",
         "status": "online"
     }
