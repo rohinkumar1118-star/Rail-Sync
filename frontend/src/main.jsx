@@ -8,7 +8,8 @@ import {
 import { BarChart, Bar, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./index.css";
 
-const API = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+//const API = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+const API = "https://rail-sync-r99l.onrender.com";
 
 async function api(path) {
   const r = await fetch(`${API}${path}`);
