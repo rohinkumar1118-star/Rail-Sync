@@ -124,7 +124,7 @@ function App() {
       <aside className={`fixed z-40 flex h-screen w-64 flex-col bg-slate-950 text-white transition-transform lg:translate-x-0 ${sidebar ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="flex items-center gap-3 px-6 py-6 border-b border-white/10">
           <div className="rounded-xl bg-blue-600 p-2"><TrainFront size={22}/></div>
-          <div><div className="font-bold tracking-wide">RAIL</div><div className="text-[10px] text-slate-400">AUTOMATIC BLOCK PLANNING</div></div>
+          <div><div className="font-bold tracking-wide">RAIL Sync</div><div className="text-[10px] text-slate-400">AUTOMATIC BLOCK PLANNING</div></div>
         </div>
         <nav className="p-4 space-y-1">
           <div className="flex items-center gap-3 rounded-xl bg-blue-600/15 px-4 py-3 text-blue-300"><LayoutDashboard size={18}/> Dashboard</div>
