@@ -10,7 +10,7 @@ OUT = ROOT / "outputs"
 
 app = FastAPI(
     title="RAIL Sync",
-    description="Backend API for the SIH AI-Powered Automatic Block Planning prototype.",
+    description="Backend API for the RAIL Sync an AI-Powered Automatic Block Planning prototype.",
     version="1.0.0"
 )
 
