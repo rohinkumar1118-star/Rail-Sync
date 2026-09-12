@@ -257,7 +257,7 @@ function App() {
           </section>
 
           <footer className="py-8 text-center text-xs text-slate-400">
-            RAIL SIH Prototype • AI-assisted maintenance prioritization + OR-Tools block optimization • Demo data
+            RAIL Sync Prototype • AI-assisted maintenance prioritization + OR-Tools block optimization • Demo data
           </footer>
         </div>
       </main>
