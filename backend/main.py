@@ -365,7 +365,13 @@ def conflicts():
     tasks, _ = result_frames()
     trains = load_csv(active_path("train_schedule.csv"))
     conflicts = []
-    for _, r in tasks[tasks.get("assignment_status", pd.Series(dtype=str)).eq("Scheduled")].iterrows():
+    if "assignment_status" in tasks.columns:
+        scheduled_tasks = tasks.loc[
+            tasks["assignment_status"].fillna("").astype(str).eq("Scheduled")
+        ]
+    else:
+        scheduled_tasks = tasks.iloc[0:0]
+    for _, r in scheduled_tasks.iterrows():
         if not r.get("date") or not r.get("block_start_time"):
             continue
         arr = tm = lambda x: int(str(x).split(":")[0]) * 60 + int(str(x).split(":")[1])
@@ -479,7 +485,21 @@ def _analytics_payload():
     route_map = sections.set_index("section")["display_name"].to_dict() if "display_name" in sections.columns else {}
     route_counts = raw["section"].astype(str).value_counts().head(10).to_dict() if len(raw) else {}
     route_counts = [{"route": route_map.get(k, k), "tasks": int(v)} for k,v in route_counts.items()]
-    scheduled_by_dept = tasks[tasks.get("assignment_status", pd.Series(dtype=str)).astype(str).eq("Scheduled")].groupby("department").size().to_dict() if len(tasks) and "department" in tasks.columns else {}
+
+    if len(tasks) and "department" in tasks.columns:
+        if "assignment_status" in tasks.columns:
+            scheduled_tasks = tasks.loc[
+                tasks["assignment_status"].fillna("").astype(str).eq("Scheduled")
+            ]
+        else:
+            scheduled_tasks = tasks.iloc[0:0]
+
+        scheduled_by_dept = (
+            scheduled_tasks.groupby("department").size().to_dict()
+        )
+    else:
+        scheduled_by_dept = {}
+    
     return {"department_load": [{"department":k,"tasks":int(v)} for k,v in dept.items()],
             "status_mix": [{"status":k,"tasks":int(v)} for k,v in status.items()],
             "route_load": route_counts,
