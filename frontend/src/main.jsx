@@ -297,6 +297,116 @@ function AnalyticsPage({analytics,kpis}){
   return <div className="space-y-6"><div><div className="eyebrow"><BarChart3 size={14}/> NETWORK ANALYTICS</div><h2 className="page-title mt-2">Maintenance & Optimization Analytics</h2><p className="page-sub">Operational workload and optimization indicators from the active synthetic dataset.</p></div><div className="grid md:grid-cols-3 gap-4"><MetricCard icon={Database} label="Total Tasks" value={kpis.total_tasks} sub="Active maintenance dataset" tone="blue"/><MetricCard icon={Blocks} label="Blocks" value={kpis.optimized_blocks} sub="Generated recommendations" tone="green"/><MetricCard icon={TrendingUp} label="Utilization" value={`${kpis.average_block_utilization_pct}%`} sub="Average block utilization" tone="amber"/></div><div className="grid xl:grid-cols-2 gap-6"><section className="card p-5"><h3 className="font-bold">Department workload</h3><div className="mt-5 space-y-4">{(analytics.department_load||[]).map(x=><div key={x.department}><div className="flex justify-between text-xs font-bold"><span>{x.department}</span><span>{x.tasks}</span></div><div className="h-3 mt-1 rounded-full bg-slate-100 overflow-hidden"><div className="h-full rounded-full bg-gradient-to-r from-red-800 to-red-500" style={{width:`${x.tasks/max*100}%`}}/></div></div>)}</div></section><section className="card p-5"><h3 className="font-bold">Task status mix</h3><div className="mt-4 grid grid-cols-2 gap-3">{(analytics.status_mix||[]).map(x=><div className="stat" key={x.status}><span>{x.status}</span><b>{x.tasks}</b></div>)}</div></section></div><section className="card p-5"><h3 className="font-bold">Highest maintenance workload corridors</h3><div className="mt-4 grid md:grid-cols-2 xl:grid-cols-3 gap-3">{(analytics.route_load||[]).map((x,i)=><div className="route-analytics" key={i}><div className="text-xs font-bold">{x.route}</div><div className="text-2xl font-black text-red-700 mt-1">{x.tasks}</div><div className="text-[10px] text-slate-500">maintenance tasks</div></div>)}</div></section></div>;
 }
 
+function InsightsPanel({ insights }) {
+  const data = insights || {};
+  const items = Array.isArray(data)
+    ? data
+    : (data.insights || data.items || data.recommendations || []);
+
+  return (
+    <section className="card p-5">
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="font-bold">AI Insights</h3>
+          <p className="text-xs text-slate-500 mt-1">
+            Data-driven planning observations
+          </p>
+        </div>
+        <span className="badge bg-blue-100 text-blue-700">
+          Decision Support
+        </span>
+      </div>
+
+      <div className="mt-4 space-y-3">
+        {items.length > 0 ? (
+          items.slice(0, 5).map((item, index) => {
+            const text =
+              typeof item === "string"
+                ? item
+                : item.message ||
+                  item.insight ||
+                  item.reason ||
+                  item.text ||
+                  JSON.stringify(item);
+
+            return (
+              <div
+                key={index}
+                className="rounded-xl border border-slate-200 p-3 bg-slate-50"
+              >
+                <p className="text-sm text-slate-700">{text}</p>
+              </div>
+            );
+          })
+        ) : (
+          <div className="rounded-xl bg-blue-50 p-4">
+            <p className="text-sm font-semibold text-blue-800">
+              Optimization insights are available after generating an optimized plan.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function ConflictSummary({ conflicts }) {
+  const data = conflicts || {};
+  const count = Number(data.count || 0);
+  const rows = Array.isArray(data.conflicts) ? data.conflicts : [];
+
+  return (
+    <section className="card p-5">
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="font-bold">Conflict Detection</h3>
+          <p className="text-xs text-slate-500 mt-1">
+            Maintenance assignments checked against train windows
+          </p>
+        </div>
+
+        <span
+          className={`badge ${
+            count
+              ? "bg-amber-100 text-amber-700"
+              : "bg-emerald-100 text-emerald-700"
+          }`}
+        >
+          {count} detected
+        </span>
+      </div>
+
+      {count === 0 ? (
+        <div className="alert-green mt-4">
+          No train-window conflicts detected in the current plan.
+        </div>
+      ) : (
+        <div className="mt-4 space-y-2">
+          {rows.slice(0, 5).map((conflict, index) => (
+            <div
+              key={index}
+              className="rounded-xl border border-amber-200 bg-amber-50 p-3"
+            >
+              <div className="text-sm font-bold">
+                {conflict.task_id || "Maintenance Task"}
+              </div>
+
+              <div className="text-xs text-slate-600 mt-1">
+                Train: {conflict.train_id || "N/A"} •
+                Time: {conflict.train_time || "N/A"}
+              </div>
+
+              <div className="text-xs text-amber-700 font-semibold mt-2">
+                Review / Re-optimize
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
 function Empty(){return <div className="h-full flex items-center justify-center text-sm text-slate-400">No optimization data available.</div>}
 
 function Forecast(){
