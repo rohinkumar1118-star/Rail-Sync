@@ -1,0 +1,21 @@
+# RAIL Sync Upgrade Checklist
+
+- [x] Dynamic CSV upload
+- [x] Dataset validation
+- [x] Dynamic dashboard KPIs
+- [x] Backend CP-SAT optimization
+- [x] Controller approval queue
+- [x] Approve / Hold / Reject
+- [x] Emergency task
+- [x] Re-optimization
+- [x] Conflict checking API
+- [x] Schematic railway section map
+- [x] Block timeline/table
+- [x] Why-this-block explanation
+- [x] What-if simulation
+- [x] Audit history
+- [x] Role-based prototype login
+- [x] Forecast/trains view
+- [ ] Production authentication
+- [ ] Real authorized railway API integration
+- [ ] Durable production database

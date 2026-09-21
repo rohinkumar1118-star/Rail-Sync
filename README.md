@@ -1,41 +1,110 @@
-# 🚆 RAIL — AI-Powered Automatic Block Planning
+# 🚆 RAIL Sync — Interactive SIH Prototype
 
-SIH prototype for **automatic railway maintenance block planning** using maintenance priority, train/corridor constraints and OR-Tools CP-SAT optimization.
+RAIL Sync is an AI-assisted railway maintenance block-planning **decision-support prototype**.
 
-> **Prototype notice:** The included datasets are synthetic/demo data. This project is for SIH demonstration and decision-support research only. It is not connected to real Indian Railways operational systems and must not be used to issue real blocks without authorized integration, validation, security controls and human approval.
+This upgraded version adds an interactive workflow on top of the existing Phase 1–5 prototype:
 
-## Problem
+**Upload → Validate → Prioritize → CP-SAT Optimize → Explain → Controller Review → Approve/Hold/Reject → Monitor → Emergency Re-optimization**
 
-Maintenance work across Engineering, Traction Distribution, and Signal & Telecommunication can be planned separately, while maintenance/defect information, train schedules and corridor availability may live in different systems. Manual coordination can lead to fragmented blocks, avoidable conflicts and inefficient use of available maintenance windows.
+> **Prototype notice:** datasets are synthetic/demo data. This project is not connected to real Indian Railways operational systems and must not be used to issue real blocks. Production deployment would require authorized railway-system integration, security, validation, audit controls and human approval.
 
-## Proposed solution
+## What was added in this upgrade
 
-RAIL combines prototype data representing:
+### 1. Dynamic datasets
+Upload CSVs for:
+- maintenance tasks
+- assets
+- train schedule
+- corridor availability
+- sections
+- goods forecast
 
-- Maintenance and defect tasks
-- Asset criticality/importance
-- Train schedules
-- Corridor availability
-- Goods/train forecast information
+The active dataset is stored under `backend/storage/runtime/` and overrides the default demo CSV for that dataset type.
 
-The pipeline then:
+### 2. Data validation
+The backend checks required columns, duplicate task IDs and missing values before optimization.
 
-1. Scores maintenance tasks by severity, safety, asset importance, urgency and overdue status.
-2. Finds train-free portions of available corridor windows.
-3. Produces a greedy baseline schedule.
-4. Uses **OR-Tools CP-SAT** to select high-value task/window assignments under capacity constraints.
-5. Groups tasks into coordinated blocks across departments.
-6. Exposes the optimized results through FastAPI.
-7. Displays KPIs and block plans in a React dashboard.
+### 3. Dynamic CP-SAT optimization
+The backend now runs the same core CP-SAT approach demonstrated in the notebook:
+- one task can be selected at most once
+- maintenance windows have capacity limits
+- train-free windows are generated from corridor + train data
+- priority rewards high-value tasks
+- delay and separate-window penalties are applied
+- tasks sharing a compatible window can form a coordinated block
 
-## Final project structure
+### 4. Controller approval workflow
+Every new recommended block starts as:
+`pending_approval`
+
+Controller can:
+- Approve
+- Hold
+- Reject
+
+The prototype stores these decisions in `backend/storage/state.json`.
+
+### 5. Railway section map
+A schematic section map is generated from `sections.csv`. It is intentionally a **prototype network visualization**, not a claim of live GIS railway positioning.
+
+### 6. Emergency maintenance
+A controller/maintenance user can add an emergency task. The system can then re-run optimization and produce a new plan.
+
+### 7. Conflict checking
+The backend checks the resulting maintenance assignments against train intervals.
+
+### 8. Explainable recommendations
+Each approval card shows reasons such as:
+- priority-weighted selection
+- train-free window
+- capacity satisfied
+- compatible task grouping
+
+### 9. What-if simulation
+A hypothetical additional corridor window can be tested without changing the active plan.
+
+### 10. Audit history
+Uploads, optimization runs, emergency tasks and controller decisions are recorded in a lightweight prototype audit trail.
+
+### 11. Role-based prototype login
+The UI supports Controller, Maintenance Officer and Admin roles. This is a **mock prototype access layer**, not production authentication.
+
+## Current architecture
+
+```text
+             React + Vite + Tailwind
+                      │
+             FastAPI REST API
+                      │
+       ┌──────────────┼───────────────┐
+       │              │               │
+   Validation      Priority        State/Audit
+       │              │               │
+       └──────────────┼───────────────┘
+                      │
+                 OR-Tools CP-SAT
+                      │
+             Optimized Block Plan
+                      │
+          Controller Approval Queue
+                      │
+        Approved / Hold / Reject
+                      │
+             Dashboard + Map
+```
+
+## Project structure
 
 ```text
 RAIL/
 ├── backend/
 │   ├── main.py
-│   └── requirements.txt
-│
+│   ├── requirements.txt
+│   ├── services/
+│   │   ├── __init__.py
+│   │   └── optimizer.py
+│   └── storage/
+│       └── runtime/
 ├── data/
 │   ├── assets.csv
 │   ├── corridor_availability.csv
@@ -43,82 +112,44 @@ RAIL/
 │   ├── maintenance_tasks.csv
 │   ├── sections.csv
 │   └── train_schedule.csv
-│
 ├── frontend/
-│   ├── src/
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── .env.example
-│   ├── index.html
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── tailwind.config.js
-│   └── vite.config.js
-│
+│   └── src/
+│       ├── main.jsx
+│       └── index.css
 ├── notebooks/
 │   └── rail_optimization.ipynb
-│
 ├── optimization/
 │   └── phase2_scheduler.py
-│
 ├── outputs/
-│   └── README.md
-│
 ├── requirements.txt
 ├── render.yaml
-├── start_backend.bat
-├── start_frontend.bat
 └── README.md
 ```
 
-## Tech stack
-
-**Python:** Pandas, NumPy, Matplotlib, scikit-learn, OR-Tools
-
-**Backend:** FastAPI + Uvicorn
-
-**Frontend:** React + Vite + Tailwind CSS + Recharts + Lucide React
-
-**Optimization:** OR-Tools CP-SAT
-
 ## Run locally
 
-### 1. Create/activate Python environment
+### Backend
 
-Windows PowerShell:
+From the project root:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, you can use:
+If PowerShell blocks activation:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
-### 2. Install Python dependencies
-
-From the project root:
+Install:
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 3. Run the final notebook
-
-Open:
-
-```text
-notebooks/rail_optimization.ipynb
-```
-
-Run all cells from top to bottom. It generates the CSV outputs used by the backend.
-
-### 4. Start backend
-
-From the project root:
+Start:
 
 ```powershell
 python -m uvicorn backend.main:app --reload
@@ -130,7 +161,7 @@ Backend:
 Swagger:
 `http://127.0.0.1:8000/docs`
 
-### 5. Start frontend
+### Frontend
 
 Open a second terminal:
 
@@ -140,97 +171,129 @@ npm install
 npm run dev
 ```
 
-Open the Vite URL, normally `http://localhost:5173`.
+Open the Vite URL, normally:
+`http://localhost:5173`
 
-The frontend reads the API URL from `VITE_API_URL`. For local development, copy `frontend/.env.example` to `frontend/.env` if desired.
+For local development the frontend defaults to:
+`http://127.0.0.1:8000`
 
-## Backend endpoints
-
-```text
-GET /
-GET /api/health
-GET /api/summary
-GET /api/kpis
-GET /api/tasks
-GET /api/priority
-GET /api/blocks
-GET /api/windows
-GET /api/assets
-GET /api/trains
-GET /api/corridor
-GET /api/sections
-GET /api/blocks/section/{section}
-GET /api/tasks/department/{department}
-```
-
-## Deployment
-
-### Backend — Render
-
-This repository includes `render.yaml`. On Render, create a Python web service from the GitHub repository. The service can use:
-
-```text
-Build: pip install -r requirements.txt
-Start: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
-```
-
-After deployment, copy the Render backend URL.
-
-### Frontend — Vercel
-
-Import the GitHub repository into Vercel and set the root directory to:
-
-```text
-frontend
-```
-
-Build command:
-
-```text
-npm run build
-```
-
-Output directory:
-
-```text
-dist
-```
-
-Add this environment variable in Vercel:
+For deployment set:
 
 ```text
 VITE_API_URL=https://YOUR-RENDER-BACKEND.onrender.com
 ```
 
-Redeploy the frontend after setting the variable.
+## Demo login
 
-## SIH demo flow
+The login is intentionally a prototype UI layer:
 
-1. Explain the problem: decentralized maintenance planning.
-2. Show the synthetic input datasets.
-3. Show task priority scoring.
-4. Show train-free feasible windows.
-5. Compare greedy planning with CP-SAT optimization.
-6. Open the FastAPI Swagger page to demonstrate the API layer.
-7. Open the React dashboard to show optimized blocks, utilization and critical/overdue work.
-8. Explain future integration with authorized TMS/SMMS/TDMS/COA data and human approval workflows.
+```text
+Controller
+username: controller
+password: controller123
 
-## Why this is an AI/optimization prototype
+Maintenance Officer
+username: maintenance
+password: maintenance123
 
-The prototype uses data-driven prioritization plus mathematical optimization. The CP-SAT model selects feasible maintenance assignments while balancing task priority, delay penalties and the number of active windows. This is best presented as **AI-assisted optimization / decision support**, not as an autonomous railway control system.
+Admin
+username: admin
+password: admin123
+```
 
-## Future scope
+The current frontend does not perform server-side authentication. Do not use these credentials for production.
 
-- Real authorized railway-system integrations
-- Live timetable and possession/block feeds
-- Weather and incident constraints
-- Asset failure prediction
-- Multi-objective optimization for punctuality, safety and maintenance cost
-- Human approval and audit trail
-- Role-based access control
-- Historical KPI monitoring and before/after analytics
-- Secure cloud deployment and monitoring
+## Recommended SIH video flow
 
-## License
+1. Login as Controller.
+2. Show dashboard and current synthetic-data KPIs.
+3. Upload a new `maintenance_tasks.csv`.
+4. Show validation result.
+5. Click **Generate Optimized Plan**.
+6. Show changed KPIs and section utilization.
+7. Open **Network Map** and click sections.
+8. Open **Block Plans**.
+9. Explain “Why recommended?”.
+10. Open **Approvals** and Approve/Hold/Reject a block.
+11. Add an emergency maintenance task.
+12. Click **Re-optimize**.
+13. Show changed block plan.
+14. Run **What-if Simulation**.
+15. Show **History** audit trail.
+16. End with:
+   `RAIL Sync assists railway controllers with data-driven, constraint-aware maintenance block planning; it does not autonomously issue railway blocks.`
 
-Academic/SIH prototype. Add your team's preferred license before public production use.
+## Real-data integration statement
+
+The current SIH prototype uses synthetic data.
+
+A production architecture can replace the CSV layer with authorized interfaces/data feeds from relevant railway systems such as TMS, SMMS, TDMS and COA. The integration layer would authenticate, validate, normalize and map source fields into the RAIL Sync schema before the priority and optimization engines run.
+
+Do **not** claim live railway integration unless authorized interfaces are actually connected.
+
+## Deployment
+
+### Render backend
+
+Use:
+
+```text
+Build:
+pip install -r requirements.txt
+
+Start:
+uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+```
+
+The existing `render.yaml` can be used.
+
+### Vercel frontend
+
+Root directory:
+
+```text
+frontend
+```
+
+Build:
+
+```text
+npm run build
+```
+
+Output:
+
+```text
+dist
+```
+
+Environment variable:
+
+```text
+VITE_API_URL=https://YOUR-RENDER-BACKEND.onrender.com
+```
+
+### Deployment note
+
+The prototype uses local CSV/runtime state. Render/Vercel are suitable for demonstrating the architecture, but production use should move runtime state, uploads and audit history to durable managed storage/database and implement proper authentication/authorization.
+
+## Important technical positioning
+
+RAIL Sync is **AI-assisted decision support / optimization**.
+
+CP-SAT is an Operations Research constraint optimization technique, not a machine-learning model.
+
+The current prototype demonstrates:
+- data-driven task prioritization
+- train-free window generation
+- constraint-based scheduling
+- coordinated block creation
+- human approval
+- dynamic re-optimization
+
+Future production ML can add:
+- asset failure prediction
+- delay-impact prediction
+- dynamic risk scoring
+
+The final block recommendation should remain subject to authorized railway operational procedures and human approval.

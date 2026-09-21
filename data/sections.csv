@@ -1,21 +1,21 @@
-section,start_station,end_station,route,distance_km
-S01,Station_1,Station_2,Eastern Corridor,25.3
-S02,Station_2,Station_3,Eastern Corridor,8.7
-S03,Station_3,Station_4,Eastern Corridor,15.4
-S04,Station_4,Station_5,Eastern Corridor,14.0
-S05,Station_5,Station_6,Eastern Corridor,27.9
-S06,Station_6,Station_7,Eastern Corridor,26.3
-S07,Station_7,Station_8,Eastern Corridor,32.1
-S08,Station_8,Station_9,Eastern Corridor,10.3
-S09,Station_9,Station_10,Eastern Corridor,19.4
-S10,Station_10,Station_11,Eastern Corridor,8.8
-S11,Station_11,Station_12,Eastern Corridor,13.9
-S12,Station_12,Station_13,Eastern Corridor,21.6
-S13,Station_13,Station_14,Eastern Corridor,8.7
-S14,Station_14,Station_15,Eastern Corridor,13.4
-S15,Station_15,Station_16,Eastern Corridor,25.5
-S16,Station_16,Station_17,Eastern Corridor,22.7
-S17,Station_17,Station_18,Eastern Corridor,14.0
-S18,Station_18,Station_19,Eastern Corridor,23.9
-S19,Station_19,Station_20,Eastern Corridor,29.9
-S20,Station_20,Station_21,Eastern Corridor,8.2
+section,start_station,end_station,route,distance_km,start_lat,start_lon,end_lat,end_lon,display_name,corridor_name
+S01,New Delhi,Sabzi Mandi,Delhi–Chandigarh Main Line,7.5,28.6431,77.2197,28.6663,77.156,New Delhi → Sabzi Mandi,Delhi–Chandigarh Main Line
+S02,Sabzi Mandi,Narela,Delhi–Chandigarh Main Line,24.0,28.6663,77.156,28.8526,77.0929,Sabzi Mandi → Narela,Delhi–Chandigarh Main Line
+S03,Narela,Sonipat,Delhi–Chandigarh Main Line,28.0,28.8526,77.0929,28.9931,77.0151,Narela → Sonipat,Delhi–Chandigarh Main Line
+S04,Sonipat,Ganaur,Delhi–Chandigarh Main Line,18.0,28.9931,77.0151,29.1547,76.971,Sonipat → Ganaur,Delhi–Chandigarh Main Line
+S05,Ganaur,Samalkha,Delhi–Chandigarh Main Line,19.0,29.1547,76.971,29.3063,76.9366,Ganaur → Samalkha,Delhi–Chandigarh Main Line
+S06,Samalkha,Panipat,Delhi–Chandigarh Main Line,12.0,29.3063,76.9366,29.3909,76.9635,Samalkha → Panipat,Delhi–Chandigarh Main Line
+S07,Panipat,Karnal,Delhi–Chandigarh Main Line,34.0,29.3909,76.9635,29.6857,76.9905,Panipat → Karnal,Delhi–Chandigarh Main Line
+S08,Karnal,Taraori,Delhi–Chandigarh Main Line,16.0,29.6857,76.9905,29.7993,76.9355,Karnal → Taraori,Delhi–Chandigarh Main Line
+S09,Taraori,Kurukshetra,Delhi–Chandigarh Main Line,18.0,29.7993,76.9355,29.9695,76.8783,Taraori → Kurukshetra,Delhi–Chandigarh Main Line
+S10,Kurukshetra,Shahbad Markanda,Delhi–Chandigarh Main Line,20.0,29.9695,76.8783,30.1672,76.8706,Kurukshetra → Shahbad Markanda,Delhi–Chandigarh Main Line
+S11,Shahbad Markanda,Ambala Cantt,Delhi–Chandigarh Main Line,24.0,30.1672,76.8706,30.3752,76.8498,Shahbad Markanda → Ambala Cantt,Delhi–Chandigarh Main Line
+S12,Ambala Cantt,Ambala City,Ambala Urban Section,8.0,30.3752,76.8498,30.3782,76.7725,Ambala Cantt → Ambala City,Ambala Urban Section
+S13,Ambala City,Rajpura,Delhi–Chandigarh Main Line,35.0,30.3782,76.7725,30.4837,76.594,Ambala City → Rajpura,Delhi–Chandigarh Main Line
+S14,Rajpura,Chandigarh,Delhi–Chandigarh Main Line,42.0,30.4837,76.594,30.7046,76.801,Rajpura → Chandigarh,Delhi–Chandigarh Main Line
+S15,Chandigarh,Kalka,Chandigarh–Kalka Link,37.0,30.7046,76.801,30.8398,76.9365,Chandigarh → Kalka,Chandigarh–Kalka Link
+S16,Chandigarh,Mohali,Chandigarh Urban Link,10.0,30.7046,76.801,30.7046,76.7179,Chandigarh → Mohali,Chandigarh Urban Link
+S17,New Delhi,Ghaziabad,Delhi–Ghaziabad Link,28.0,28.6431,77.2197,28.6692,77.4538,New Delhi → Ghaziabad,Delhi–Ghaziabad Link
+S18,Ghaziabad,Meerut City,Delhi–Meerut Link,52.0,28.6692,77.4538,28.9845,77.7064,Ghaziabad → Meerut City,Delhi–Meerut Link
+S19,Meerut City,Muzaffarnagar,Meerut–Saharanpur Corridor,65.0,28.9845,77.7064,29.4727,77.7085,Meerut City → Muzaffarnagar,Meerut–Saharanpur Corridor
+S20,Muzaffarnagar,Saharanpur,Meerut–Saharanpur Corridor,90.0,29.4727,77.7085,29.964,77.546,Muzaffarnagar → Saharanpur,Meerut–Saharanpur Corridor

@@ -1,264 +1,264 @@
 task_id,department,section,priority_score,block_id,date,block_start,block_end,status,reason
-M078,Traction,S13,104.5,B001,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M209,S&T,S18,102.0,B002,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M052,S&T,S18,100.5,B002,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M142,S&T,S05,99.0,B003,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M232,Engineering,S13,96.0,B001,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M243,S&T,S05,94.0,B003,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M072,S&T,S08,90.0,B004,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M143,Traction,S13,90.0,B005,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M288,S&T,S02,90.0,B006,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M224,Engineering,S06,89.5,B007,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M138,S&T,S03,89.5,B008,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M175,S&T,S03,88.5,B008,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M279,Traction,S13,87.0,B009,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M179,S&T,S10,87.0,B010,2026-09-07,09:00,11:30,Scheduled,New conflict-free block
-M104,Traction,S18,86.5,B011,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M191,S&T,S11,85.5,B012,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M083,Engineering,S11,85.5,B013,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M003,S&T,S15,85.0,B014,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M089,Traction,S05,85.0,B015,2026-09-07,09:00,11:30,Scheduled,New conflict-free block
-M126,S&T,S13,84.0,B005,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M268,S&T,S11,82.5,B016,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M112,S&T,S02,79.5,B017,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M105,Engineering,S08,79.0,B004,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M180,Engineering,S18,78.5,B018,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M088,Engineering,S19,76.5,B019,2026-09-07,14:00,16:00,Scheduled,New conflict-free block
-M149,S&T,S02,76.5,B006,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M139,S&T,S13,75.0,B020,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M132,S&T,S02,75.0,B021,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M283,Traction,S14,75.0,B022,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M168,Engineering,S03,74.5,B023,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M079,S&T,S03,74.5,B023,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M125,Traction,S01,74.5,B024,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M059,Engineering,S12,74.0,B025,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M071,Traction,S05,71.0,B026,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M120,Traction,S14,70.5,B027,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M155,Engineering,S12,70.5,B025,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M181,Traction,S13,70.0,B001,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M055,Engineering,S18,70.0,B011,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M062,Traction,S04,70.0,B028,2026-09-07,09:55,11:55,Scheduled,New conflict-free block
-M002,Traction,S18,70.0,B018,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M277,S&T,S03,70.0,B008,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M108,Engineering,S01,69.0,B024,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M063,Traction,S02,69.0,B017,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M218,S&T,S08,69.0,B029,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M111,S&T,S20,69.0,B030,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M020,Engineering,S11,69.0,B013,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M131,Engineering,S14,68.5,B027,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M201,Traction,S10,68.0,B031,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M247,S&T,S02,67.5,B021,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M284,Traction,S15,67.5,B014,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M146,S&T,S20,67.5,B030,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M010,Traction,S05,67.0,B026,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M005,S&T,S04,66.0,B032,2026-09-07,09:55,11:55,Scheduled,New conflict-free block
-M119,Traction,S18,65.5,B002,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M140,Traction,S04,65.5,B033,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M039,Traction,S20,65.5,B034,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M034,S&T,S02,64.5,B035,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M045,S&T,S20,64.5,B034,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M025,Traction,S02,64.5,B035,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M263,Traction,S18,64.5,B036,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M235,Engineering,S19,64.5,B037,2026-09-07,14:00,15:30,Scheduled,New conflict-free block
-M166,Traction,S18,64.5,B038,2026-09-07,09:00,11:30,Scheduled,New conflict-free block
-M214,S&T,S18,64.5,B036,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M274,Traction,S04,64.5,B033,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M271,Traction,S13,64.5,B039,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M099,Engineering,S04,64.0,B040,2026-09-07,09:55,11:25,Scheduled,New conflict-free block
-M067,S&T,S19,64.0,B041,2026-09-07,14:00,16:00,Scheduled,New conflict-free block
-M212,Traction,S11,64.0,B012,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M188,S&T,S09,64.0,B042,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M042,Engineering,S15,63.5,B043,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M021,Traction,S11,63.5,B044,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M153,S&T,S19,63.0,B045,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M031,S&T,S03,62.5,B046,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M084,Traction,S18,62.0,B047,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M123,S&T,S18,61.0,B047,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M205,Engineering,S08,61.0,B029,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M297,Traction,S14,60.5,B022,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M057,Traction,S05,60.5,B048,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M197,S&T,S04,60.0,B049,2026-09-07,09:55,11:55,Scheduled,New conflict-free block
-M033,Traction,S18,59.5,B018,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M018,S&T,S18,59.5,B038,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M135,S&T,S14,59.5,B050,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M137,Traction,S13,59.5,B009,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M075,Engineering,S01,59.5,B051,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M060,Traction,S16,59.0,B052,2026-09-07,10:00,11:00,Scheduled,New conflict-free block
-M007,Engineering,S18,58.5,B053,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M163,Traction,S06,58.5,B007,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M103,Engineering,S14,58.5,B050,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M195,Traction,S16,58.5,B054,2026-09-07,10:00,11:30,Scheduled,New conflict-free block
-M206,Traction,S11,58.5,B016,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M095,Traction,S14,58.5,B055,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M211,Engineering,S06,58.5,B056,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M207,Traction,S13,58.0,B020,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M216,Traction,S04,58.0,B057,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M156,Traction,S14,57.5,B058,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M290,Traction,S04,57.5,B057,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M015,Engineering,S15,57.5,B043,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M242,Engineering,S19,57.5,B059,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M254,Traction,S01,57.5,B051,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M023,S&T,S15,57.5,B043,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M154,Engineering,S08,57.0,B060,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M100,Engineering,S02,57.0,B061,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M049,Traction,S10,56.5,B010,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M159,S&T,S04,54.0,B062,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M115,S&T,S03,54.0,B046,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M037,Traction,S04,54.0,B063,2026-09-07,09:55,11:55,Scheduled,New conflict-free block
-M276,Engineering,S07,54.0,B064,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M029,S&T,S03,54.0,B065,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M298,S&T,S03,54.0,B046,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M121,S&T,S10,54.0,B031,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M210,Traction,S14,54.0,B058,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M233,Traction,S07,54.0,B064,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M006,S&T,S10,54.0,B066,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M249,S&T,S18,53.5,B053,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M248,S&T,S09,53.5,B042,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M182,Engineering,S08,53.0,B004,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M164,Engineering,S10,53.0,B066,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M295,Traction,S14,52.0,B055,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M237,S&T,S18,52.0,B053,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M096,Traction,S04,52.0,B062,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M070,S&T,S01,51.5,B067,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M229,S&T,S03,51.5,B065,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M185,S&T,S04,51.5,B068,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M287,Traction,S13,50.5,B009,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M253,Engineering,S04,50.5,B068,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M026,Engineering,S08,50.5,B060,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M217,Traction,S13,50.5,B039,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M260,Traction,S13,50.5,B069,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M246,Traction,S11,50.0,B044,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M256,Engineering,S02,50.0,B061,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M009,S&T,S18,50.0,B053,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M192,Engineering,S08,50.0,B070,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M176,Traction,S13,50.0,B069,2026-09-07,09:00,10:00,Scheduled,Grouped into existing block
-M091,S&T,S03,50.0,B071,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M128,Traction,S14,50.0,B072,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M073,Engineering,S02,50.0,B061,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M064,Traction,S14,49.0,B055,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M097,Engineering,S15,49.0,B073,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M177,Engineering,S08,49.0,B070,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M230,S&T,S20,49.0,B074,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M228,S&T,S18,49.0,B075,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M203,S&T,S09,48.5,B076,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M226,Engineering,S15,48.5,B073,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M286,Traction,S14,47.5,B072,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M265,Traction,S11,47.5,B044,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M222,Engineering,S03,47.0,B077,2026-09-07,09:00,11:00,Scheduled,New conflict-free block
-M014,Traction,S16,47.0,B078,2026-09-07,10:00,11:30,Scheduled,New conflict-free block
-M069,S&T,S15,46.0,B073,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M035,Traction,S11,46.0,B079,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M041,Engineering,S06,46.0,B056,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M090,Traction,S15,46.0,B073,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M200,S&T,S04,45.5,B080,2026-09-07,09:55,11:25,Scheduled,New conflict-free block
-M109,Engineering,S11,45.5,B079,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M124,Traction,S14,44.5,B072,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M152,Traction,S14,44.5,B081,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M165,Engineering,S02,44.5,B082,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M282,Traction,S20,44.5,B083,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M245,Traction,S06,44.0,B056,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M027,S&T,S08,44.0,B070,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M294,Traction,S06,43.0,B084,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M300,Engineering,S03,42.5,B065,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M269,Engineering,S18,41.5,B075,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M092,Traction,S08,41.0,B085,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M122,S&T,S19,41.0,B086,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M053,Traction,S14,40.0,B081,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M270,S&T,S20,40.0,B034,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M266,S&T,S10,40.0,B087,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M050,Engineering,S08,40.0,B085,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M252,Engineering,S02,40.0,B017,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M251,Engineering,S18,40.0,B075,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M136,Traction,S13,40.0,B069,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M102,Traction,S13,40.0,B069,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M127,S&T,S04,40.0,B088,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M134,Traction,S15,40.0,B089,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M101,Engineering,S08,40.0,B090,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M225,Engineering,S10,40.0,B087,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M106,Traction,S10,40.0,B031,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M244,Engineering,S18,40.0,B091,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M236,S&T,S17,40.0,B092,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M086,Traction,S05,40.0,B015,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M081,S&T,S15,40.0,B089,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M129,S&T,S18,40.0,B091,2026-09-07,09:00,10:00,Scheduled,Grouped into existing block
-M178,Engineering,S11,40.0,B093,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M291,Traction,S05,40.0,B048,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M189,S&T,S10,40.0,B087,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M024,S&T,S04,39.5,B088,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M013,S&T,S14,39.5,B094,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M190,S&T,S18,39.5,B091,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M066,Engineering,S15,39.5,B089,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M250,Traction,S18,39.5,B091,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M169,Engineering,S10,39.5,B095,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M004,S&T,S03,39.5,B065,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M040,S&T,S15,39.5,B089,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M094,S&T,S18,39.5,B096,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M118,Traction,S01,37.0,B051,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M147,S&T,S20,37.0,B074,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M008,Engineering,S19,37.0,B037,2026-09-07,14:00,17:00,Scheduled,Grouped into existing block
-M032,Traction,S20,37.0,B083,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M289,S&T,S08,36.5,B090,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M061,Traction,S18,36.5,B096,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M051,Traction,S04,36.5,B097,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M267,Engineering,S18,36.5,B091,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M085,Traction,S18,36.5,B098,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M068,Traction,S14,34.0,B081,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M001,Engineering,S15,34.0,B099,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M107,Engineering,S15,34.0,B099,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M293,S&T,S03,34.0,B071,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M012,Engineering,S08,34.0,B100,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M262,Engineering,S15,34.0,B089,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M077,Engineering,S07,34.0,B064,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M259,Engineering,S14,34.0,B094,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M030,Engineering,S13,34.0,B101,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M116,Engineering,S17,34.0,B092,2026-09-07,09:00,10:00,Scheduled,Grouped into existing block
-M238,Traction,S06,34.0,B084,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M151,S&T,S04,34.0,B102,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M028,Traction,S09,33.5,B076,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M199,Engineering,S03,32.5,B071,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M046,S&T,S01,31.0,B067,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M148,Engineering,S01,31.0,B103,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M255,S&T,S04,31.0,B097,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M281,S&T,S19,29.5,B104,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M016,Traction,S18,29.5,B098,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M022,S&T,S09,29.5,B076,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M171,S&T,S18,29.5,B096,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M184,Traction,S05,29.5,B048,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M278,S&T,S11,29.5,B079,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M194,Engineering,S10,29.5,B095,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M174,S&T,S19,29.5,B105,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M219,Engineering,S06,29.5,B056,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M157,Traction,S06,29.5,B106,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M173,S&T,S07,29.5,B107,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M167,Engineering,S06,29.5,B106,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M221,S&T,S03,29.5,B077,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M161,S&T,S07,29.5,B107,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M273,S&T,S04,29.5,B108,2026-09-07,09:55,11:25,Scheduled,New conflict-free block
-M093,S&T,S04,29.5,B109,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M065,Engineering,S15,29.5,B110,2026-09-07,09:00,10:30,Scheduled,New conflict-free block
-M076,Traction,S18,29.5,B098,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M261,S&T,S20,29.5,B111,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M215,S&T,S20,29.5,B111,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M087,Traction,S18,29.0,B112,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M038,Traction,S09,28.0,B042,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M186,S&T,S04,26.5,B109,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M240,Engineering,S10,26.5,B095,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M196,Engineering,S07,26.5,B107,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M048,S&T,S10,25.0,B113,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
-M047,Engineering,S01,25.0,B051,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M044,S&T,S08,23.5,B090,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M170,Engineering,S04,23.5,B114,2026-09-07,09:55,10:55,Scheduled,New conflict-free block
-M208,Engineering,S06,23.5,B106,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M172,S&T,S01,23.5,B103,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M272,Engineering,S06,23.5,B106,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M110,Traction,S06,23.5,B115,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M130,Traction,S04,23.5,B116,2026-09-07,09:00,09:30,Scheduled,New conflict-free block
-M141,Engineering,S14,23.5,B094,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M227,Traction,S15,22.0,B110,2026-09-07,09:00,11:30,Scheduled,Grouped into existing block
-M280,Traction,S18,19.0,B112,2026-09-07,09:00,10:30,Scheduled,Grouped into existing block
-M145,Traction,S10,19.0,B087,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M204,Engineering,S06,19.0,B115,2026-09-07,09:00,10:00,Scheduled,Grouped into existing block
-M080,Traction,S07,19.0,B107,2026-09-07,09:00,12:00,Scheduled,Grouped into existing block
-M114,S&T,S10,19.0,B113,2026-09-07,09:00,11:00,Scheduled,Grouped into existing block
-M257,Traction,S04,19.0,B114,2026-09-07,09:55,11:55,Scheduled,Grouped into existing block
-M275,S&T,S03,19.0,B117,2026-09-07,09:00,10:00,Scheduled,New conflict-free block
+M078,Traction,S13,104.5,B001,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M209,S&T,S18,102.0,B002,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M052,S&T,S18,100.5,B002,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M142,S&T,S05,99.0,B003,2026-09-07,09:00,11:00,Ongoing,New conflict-free block
+M232,Engineering,S13,96.0,B001,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M243,S&T,S05,94.0,B003,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M072,S&T,S08,90.0,B004,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M143,Traction,S13,90.0,B005,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M288,S&T,S02,90.0,B006,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M224,Engineering,S06,89.5,B007,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M138,S&T,S03,89.5,B008,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M175,S&T,S03,88.5,B008,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M279,Traction,S13,87.0,B009,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M179,S&T,S10,87.0,B010,2026-09-07,09:00,11:30,Completed,New conflict-free block
+M104,Traction,S18,86.5,B011,2026-09-07,09:00,11:00,Ongoing,New conflict-free block
+M191,S&T,S11,85.5,B012,2026-09-07,09:00,11:00,Completed,New conflict-free block
+M083,Engineering,S11,85.5,B013,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M003,S&T,S15,85.0,B014,2026-09-07,09:00,11:00,Ongoing,New conflict-free block
+M089,Traction,S05,85.0,B015,2026-09-07,09:00,11:30,Ongoing,New conflict-free block
+M126,S&T,S13,84.0,B005,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M268,S&T,S11,82.5,B016,2026-09-07,09:00,11:00,Completed,New conflict-free block
+M112,S&T,S02,79.5,B017,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M105,Engineering,S08,79.0,B004,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M180,Engineering,S18,78.5,B018,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M088,Engineering,S19,76.5,B019,2026-09-07,14:00,16:00,Pending,New conflict-free block
+M149,S&T,S02,76.5,B006,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M139,S&T,S13,75.0,B020,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M132,S&T,S02,75.0,B021,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M283,Traction,S14,75.0,B022,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M168,Engineering,S03,74.5,B023,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M079,S&T,S03,74.5,B023,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M125,Traction,S01,74.5,B024,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M059,Engineering,S12,74.0,B025,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M071,Traction,S05,71.0,B026,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M120,Traction,S14,70.5,B027,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M155,Engineering,S12,70.5,B025,2026-09-07,09:00,11:30,Completed,Grouped into existing block
+M181,Traction,S13,70.0,B001,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M055,Engineering,S18,70.0,B011,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M062,Traction,S04,70.0,B028,2026-09-07,09:55,11:55,Pending,New conflict-free block
+M002,Traction,S18,70.0,B018,2026-09-07,09:00,11:30,Overdue,Grouped into existing block
+M277,S&T,S03,70.0,B008,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M108,Engineering,S01,69.0,B024,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M063,Traction,S02,69.0,B017,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M218,S&T,S08,69.0,B029,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M111,S&T,S20,69.0,B030,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M020,Engineering,S11,69.0,B013,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M131,Engineering,S14,68.5,B027,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M201,Traction,S10,68.0,B031,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M247,S&T,S02,67.5,B021,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M284,Traction,S15,67.5,B014,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M146,S&T,S20,67.5,B030,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M010,Traction,S05,67.0,B026,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M005,S&T,S04,66.0,B032,2026-09-07,09:55,11:55,Pending,New conflict-free block
+M119,Traction,S18,65.5,B002,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M140,Traction,S04,65.5,B033,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M039,Traction,S20,65.5,B034,2026-09-07,09:00,09:30,Completed,New conflict-free block
+M034,S&T,S02,64.5,B035,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M045,S&T,S20,64.5,B034,2026-09-07,09:00,10:30,Completed,Grouped into existing block
+M025,Traction,S02,64.5,B035,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M263,Traction,S18,64.5,B036,2026-09-07,09:00,11:00,Ongoing,New conflict-free block
+M235,Engineering,S19,64.5,B037,2026-09-07,14:00,15:30,Pending,New conflict-free block
+M166,Traction,S18,64.5,B038,2026-09-07,09:00,11:30,Ongoing,New conflict-free block
+M214,S&T,S18,64.5,B036,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M274,Traction,S04,64.5,B033,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M271,Traction,S13,64.5,B039,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M099,Engineering,S04,64.0,B040,2026-09-07,09:55,11:25,Pending,New conflict-free block
+M067,S&T,S19,64.0,B041,2026-09-07,14:00,16:00,Pending,New conflict-free block
+M212,Traction,S11,64.0,B012,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M188,S&T,S09,64.0,B042,2026-09-07,09:00,11:00,Completed,New conflict-free block
+M042,Engineering,S15,63.5,B043,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M021,Traction,S11,63.5,B044,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M153,S&T,S19,63.0,B045,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M031,S&T,S03,62.5,B046,2026-09-07,09:00,09:30,Pending,New conflict-free block
+M084,Traction,S18,62.0,B047,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M123,S&T,S18,61.0,B047,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M205,Engineering,S08,61.0,B029,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M297,Traction,S14,60.5,B022,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M057,Traction,S05,60.5,B048,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M197,S&T,S04,60.0,B049,2026-09-07,09:55,11:55,Pending,New conflict-free block
+M033,Traction,S18,59.5,B018,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M018,S&T,S18,59.5,B038,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M135,S&T,S14,59.5,B050,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M137,Traction,S13,59.5,B009,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M075,Engineering,S01,59.5,B051,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M060,Traction,S16,59.0,B052,2026-09-07,10:00,11:00,Completed,New conflict-free block
+M007,Engineering,S18,58.5,B053,2026-09-07,09:00,10:30,Overdue,New conflict-free block
+M163,Traction,S06,58.5,B007,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M103,Engineering,S14,58.5,B050,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M195,Traction,S16,58.5,B054,2026-09-07,10:00,11:30,Completed,New conflict-free block
+M206,Traction,S11,58.5,B016,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M095,Traction,S14,58.5,B055,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M211,Engineering,S06,58.5,B056,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M207,Traction,S13,58.0,B020,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M216,Traction,S04,58.0,B057,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M156,Traction,S14,57.5,B058,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M290,Traction,S04,57.5,B057,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M015,Engineering,S15,57.5,B043,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M242,Engineering,S19,57.5,B059,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M254,Traction,S01,57.5,B051,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M023,S&T,S15,57.5,B043,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M154,Engineering,S08,57.0,B060,2026-09-07,09:00,11:00,Ongoing,New conflict-free block
+M100,Engineering,S02,57.0,B061,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M049,Traction,S10,56.5,B010,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M159,S&T,S04,54.0,B062,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M115,S&T,S03,54.0,B046,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M037,Traction,S04,54.0,B063,2026-09-07,09:55,11:55,Pending,New conflict-free block
+M276,Engineering,S07,54.0,B064,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M029,S&T,S03,54.0,B065,2026-09-07,09:00,10:30,Overdue,New conflict-free block
+M298,S&T,S03,54.0,B046,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M121,S&T,S10,54.0,B031,2026-09-07,09:00,11:30,Completed,Grouped into existing block
+M210,Traction,S14,54.0,B058,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M233,Traction,S07,54.0,B064,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M006,S&T,S10,54.0,B066,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M249,S&T,S18,53.5,B053,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M248,S&T,S09,53.5,B042,2026-09-07,09:00,11:30,Completed,Grouped into existing block
+M182,Engineering,S08,53.0,B004,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M164,Engineering,S10,53.0,B066,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M295,Traction,S14,52.0,B055,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M237,S&T,S18,52.0,B053,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M096,Traction,S04,52.0,B062,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M070,S&T,S01,51.5,B067,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M229,S&T,S03,51.5,B065,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M185,S&T,S04,51.5,B068,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M287,Traction,S13,50.5,B009,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M253,Engineering,S04,50.5,B068,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M026,Engineering,S08,50.5,B060,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M217,Traction,S13,50.5,B039,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M260,Traction,S13,50.5,B069,2026-09-07,09:00,09:30,Pending,New conflict-free block
+M246,Traction,S11,50.0,B044,2026-09-07,09:00,11:30,Completed,Grouped into existing block
+M256,Engineering,S02,50.0,B061,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M009,S&T,S18,50.0,B053,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M192,Engineering,S08,50.0,B070,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M176,Traction,S13,50.0,B069,2026-09-07,09:00,10:00,Pending,Grouped into existing block
+M091,S&T,S03,50.0,B071,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M128,Traction,S14,50.0,B072,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M073,Engineering,S02,50.0,B061,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M064,Traction,S14,49.0,B055,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M097,Engineering,S15,49.0,B073,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M177,Engineering,S08,49.0,B070,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M230,S&T,S20,49.0,B074,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M228,S&T,S18,49.0,B075,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M203,S&T,S09,48.5,B076,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M226,Engineering,S15,48.5,B073,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M286,Traction,S14,47.5,B072,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M265,Traction,S11,47.5,B044,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M222,Engineering,S03,47.0,B077,2026-09-07,09:00,11:00,Pending,New conflict-free block
+M014,Traction,S16,47.0,B078,2026-09-07,10:00,11:30,Completed,New conflict-free block
+M069,S&T,S15,46.0,B073,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M035,Traction,S11,46.0,B079,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M041,Engineering,S06,46.0,B056,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M090,Traction,S15,46.0,B073,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M200,S&T,S04,45.5,B080,2026-09-07,09:55,11:25,Pending,New conflict-free block
+M109,Engineering,S11,45.5,B079,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M124,Traction,S14,44.5,B072,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M152,Traction,S14,44.5,B081,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M165,Engineering,S02,44.5,B082,2026-09-07,09:00,10:30,Pending,New conflict-free block
+M282,Traction,S20,44.5,B083,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M245,Traction,S06,44.0,B056,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M027,S&T,S08,44.0,B070,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M294,Traction,S06,43.0,B084,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M300,Engineering,S03,42.5,B065,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M269,Engineering,S18,41.5,B075,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M092,Traction,S08,41.0,B085,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M122,S&T,S19,41.0,B086,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M053,Traction,S14,40.0,B081,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M270,S&T,S20,40.0,B034,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M266,S&T,S10,40.0,B087,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M050,Engineering,S08,40.0,B085,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M252,Engineering,S02,40.0,B017,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M251,Engineering,S18,40.0,B075,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M136,Traction,S13,40.0,B069,2026-09-07,09:00,10:30,Pending,Grouped into existing block
+M102,Traction,S13,40.0,B069,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M127,S&T,S04,40.0,B088,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M134,Traction,S15,40.0,B089,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M101,Engineering,S08,40.0,B090,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M225,Engineering,S10,40.0,B087,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M106,Traction,S10,40.0,B031,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M244,Engineering,S18,40.0,B091,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M236,S&T,S17,40.0,B092,2026-09-07,09:00,09:30,Pending,New conflict-free block
+M086,Traction,S05,40.0,B015,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M081,S&T,S15,40.0,B089,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M129,S&T,S18,40.0,B091,2026-09-07,09:00,10:00,Ongoing,Grouped into existing block
+M178,Engineering,S11,40.0,B093,2026-09-07,09:00,10:30,Completed,New conflict-free block
+M291,Traction,S05,40.0,B048,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M189,S&T,S10,40.0,B087,2026-09-07,09:00,11:30,Completed,Grouped into existing block
+M024,S&T,S04,39.5,B088,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M013,S&T,S14,39.5,B094,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M190,S&T,S18,39.5,B091,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M066,Engineering,S15,39.5,B089,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M250,Traction,S18,39.5,B091,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M169,Engineering,S10,39.5,B095,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M004,S&T,S03,39.5,B065,2026-09-07,09:00,12:00,Overdue,Grouped into existing block
+M040,S&T,S15,39.5,B089,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M094,S&T,S18,39.5,B096,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M118,Traction,S01,37.0,B051,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M147,S&T,S20,37.0,B074,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M008,Engineering,S19,37.0,B037,2026-09-07,14:00,17:00,Pending,Grouped into existing block
+M032,Traction,S20,37.0,B083,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M289,S&T,S08,36.5,B090,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M061,Traction,S18,36.5,B096,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M051,Traction,S04,36.5,B097,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M267,Engineering,S18,36.5,B091,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M085,Traction,S18,36.5,B098,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M068,Traction,S14,34.0,B081,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M001,Engineering,S15,34.0,B099,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M107,Engineering,S15,34.0,B099,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M293,S&T,S03,34.0,B071,2026-09-07,09:00,11:00,Pending,Grouped into existing block
+M012,Engineering,S08,34.0,B100,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M262,Engineering,S15,34.0,B089,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M077,Engineering,S07,34.0,B064,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M259,Engineering,S14,34.0,B094,2026-09-07,09:00,10:30,Pending,Grouped into existing block
+M030,Engineering,S13,34.0,B101,2026-09-07,09:00,10:30,Overdue,New conflict-free block
+M116,Engineering,S17,34.0,B092,2026-09-07,09:00,10:00,Pending,Grouped into existing block
+M238,Traction,S06,34.0,B084,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M151,S&T,S04,34.0,B102,2026-09-07,09:00,09:30,Pending,New conflict-free block
+M028,Traction,S09,33.5,B076,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M199,Engineering,S03,32.5,B071,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M046,S&T,S01,31.0,B067,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M148,Engineering,S01,31.0,B103,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M255,S&T,S04,31.0,B097,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M281,S&T,S19,29.5,B104,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M016,Traction,S18,29.5,B098,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M022,S&T,S09,29.5,B076,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M171,S&T,S18,29.5,B096,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M184,Traction,S05,29.5,B048,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M278,S&T,S11,29.5,B079,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M194,Engineering,S10,29.5,B095,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M174,S&T,S19,29.5,B105,2026-09-07,09:00,10:00,Pending,New conflict-free block
+M219,Engineering,S06,29.5,B056,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M157,Traction,S06,29.5,B106,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M173,S&T,S07,29.5,B107,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M167,Engineering,S06,29.5,B106,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M221,S&T,S03,29.5,B077,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M161,S&T,S07,29.5,B107,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M273,S&T,S04,29.5,B108,2026-09-07,09:55,11:25,Pending,New conflict-free block
+M093,S&T,S04,29.5,B109,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M065,Engineering,S15,29.5,B110,2026-09-07,09:00,10:30,Ongoing,New conflict-free block
+M076,Traction,S18,29.5,B098,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M261,S&T,S20,29.5,B111,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M215,S&T,S20,29.5,B111,2026-09-07,09:00,10:30,Completed,Grouped into existing block
+M087,Traction,S18,29.0,B112,2026-09-07,09:00,10:00,Ongoing,New conflict-free block
+M038,Traction,S09,28.0,B042,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M186,S&T,S04,26.5,B109,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M240,Engineering,S10,26.5,B095,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M196,Engineering,S07,26.5,B107,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M048,S&T,S10,25.0,B113,2026-09-07,09:00,10:00,Completed,New conflict-free block
+M047,Engineering,S01,25.0,B051,2026-09-07,09:00,12:00,Pending,Grouped into existing block
+M044,S&T,S08,23.5,B090,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M170,Engineering,S04,23.5,B114,2026-09-07,09:55,10:55,Pending,New conflict-free block
+M208,Engineering,S06,23.5,B106,2026-09-07,09:00,11:00,Ongoing,Grouped into existing block
+M172,S&T,S01,23.5,B103,2026-09-07,09:00,10:30,Pending,Grouped into existing block
+M272,Engineering,S06,23.5,B106,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M110,Traction,S06,23.5,B115,2026-09-07,09:00,09:30,Ongoing,New conflict-free block
+M130,Traction,S04,23.5,B116,2026-09-07,09:00,09:30,Pending,New conflict-free block
+M141,Engineering,S14,23.5,B094,2026-09-07,09:00,11:30,Pending,Grouped into existing block
+M227,Traction,S15,22.0,B110,2026-09-07,09:00,11:30,Ongoing,Grouped into existing block
+M280,Traction,S18,19.0,B112,2026-09-07,09:00,10:30,Ongoing,Grouped into existing block
+M145,Traction,S10,19.0,B087,2026-09-07,09:00,12:00,Completed,Grouped into existing block
+M204,Engineering,S06,19.0,B115,2026-09-07,09:00,10:00,Ongoing,Grouped into existing block
+M080,Traction,S07,19.0,B107,2026-09-07,09:00,12:00,Ongoing,Grouped into existing block
+M114,S&T,S10,19.0,B113,2026-09-07,09:00,11:00,Completed,Grouped into existing block
+M257,Traction,S04,19.0,B114,2026-09-07,09:55,11:55,Pending,Grouped into existing block
+M275,S&T,S03,19.0,B117,2026-09-07,09:00,10:00,Pending,New conflict-free block

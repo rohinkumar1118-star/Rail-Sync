@@ -1,7 +1,7 @@
 {
-  "name": "rail-automatic-block-planning-dashboard",
+  "name": "rail-sync-decision-support",
   "private": true,
-  "version": "1.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
