@@ -94,7 +94,8 @@ def load_csv(path: Path):
         raise HTTPException(status_code=500, detail=f"Could not read {path.name}: {e}")
 
 def clean_records(df):
-    df = df.copy().where(pd.notnull(df), None)
+    df = df.copy().astype(object)
+    df = df.where(pd.notnull(df), None)
     return df.to_dict(orient="records")
 
 def output_path(live_name, fallback_name):
