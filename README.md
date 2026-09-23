@@ -1,6 +1,6 @@
-# 🚆 RAIL Sync — Interactive SIH Prototype
+# 🚆 ABMS — Interactive SIH Prototype
 
-RAIL Sync is an AI-assisted railway maintenance block-planning **decision-support prototype**.
+ABMS is an AI-assisted railway maintenance block-planning **decision-support prototype**.
 
 This upgraded version adds an interactive workflow on top of the existing Phase 1–5 prototype:
 
@@ -221,13 +221,13 @@ The current frontend does not perform server-side authentication. Do not use the
 14. Run **What-if Simulation**.
 15. Show **History** audit trail.
 16. End with:
-   `RAIL Sync assists railway controllers with data-driven, constraint-aware maintenance block planning; it does not autonomously issue railway blocks.`
+   `ABMS assists railway controllers with data-driven, constraint-aware maintenance block planning; it does not autonomously issue railway blocks.`
 
 ## Real-data integration statement
 
 The current SIH prototype uses synthetic data.
 
-A production architecture can replace the CSV layer with authorized interfaces/data feeds from relevant railway systems such as TMS, SMMS, TDMS and COA. The integration layer would authenticate, validate, normalize and map source fields into the RAIL Sync schema before the priority and optimization engines run.
+A production architecture can replace the CSV layer with authorized interfaces/data feeds from relevant railway systems such as TMS, SMMS, TDMS and COA. The integration layer would authenticate, validate, normalize and map source fields into the ABMS schema before the priority and optimization engines run.
 
 Do **not** claim live railway integration unless authorized interfaces are actually connected.
 
@@ -279,7 +279,7 @@ The prototype uses local CSV/runtime state. Render/Vercel are suitable for demon
 
 ## Important technical positioning
 
-RAIL Sync is **AI-assisted decision support / optimization**.
+ABMS is **AI-assisted decision support / optimization**.
 
 CP-SAT is an Operations Research constraint optimization technique, not a machine-learning model.
 

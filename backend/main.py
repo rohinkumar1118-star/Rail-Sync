@@ -20,8 +20,8 @@ RUNTIME.mkdir(parents=True, exist_ok=True)
 OUT.mkdir(exist_ok=True)
 
 app = FastAPI(
-    title="RAIL Sync",
-    description="Interactive decision-support API for the RAIL Sync AI-assisted Automatic Block Planning prototype.",
+    title="ABMS",
+    description="Interactive decision-support API for the ABMS AI-assisted Automatic Block Planning prototype.",
     version="3.0.0"
 )
 
@@ -137,7 +137,7 @@ def validate_df(df, required):
 
 @app.get("/")
 def root():
-    return {"message": "RAIL Sync API is running", "docs": "/docs", "status": "online"}
+    return {"message": "ABMS API is running", "docs": "/docs", "status": "online"}
 
 @app.get("/api/health")
 def health():
@@ -222,7 +222,7 @@ def dashboard():
 @app.get("/api/summary")
 def get_summary():
     return {
-        "project": "RAIL Sync",
+        "project": "ABMS",
         "department_scope": ["Engineering", "Traction Distribution", "Signal & Telecommunication"],
         "data_sources": ["TMS", "SMMS", "TDMS", "COA"],
         "optimization_engine": "OR-Tools CP-SAT",
