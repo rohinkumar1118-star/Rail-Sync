@@ -226,7 +226,7 @@ function App() {
   return <div className={`min-h-screen app-shell ${darkMode?"theme-dark":"theme-light"}`}>
     {sidebar&&<div className="fixed inset-0 z-30 bg-slate-900/30 lg:hidden" onClick={()=>setSidebar(false)}/>} 
     <aside className={`fixed z-40 flex h-screen w-64 flex-col bg-slate-950 text-white transition-transform lg:translate-x-0 ${sidebar?"translate-x-0":"-translate-x-full"}`}>
-      <div className="flex items-center gap-3 px-6 py-6 border-b border-white/10"><div className="ir-mark"><TrainFront size={22}/></div><div><div className="font-bold tracking-tight">ABMS</div><div className="text-[10px] text-slate-400">RAILWAY BLOCK CONTROL</div></div></div>
+      <div className="flex items-center gap-3 px-6 py-6 border-b border-white/10"><div className="ir-mark"><TrainFront size={22}/></div><div><div className="font-bold tracking-tight">ABMS</div><div className="text-[10px] text-slate-400">Automatic Block Management System</div></div></div>
       <div className="mx-4 mt-4 rounded-xl border border-white/10 bg-white/5 px-3 py-2"><div className="text-[9px] uppercase tracking-widest text-slate-500">Active role</div><div className="mt-1 flex items-center gap-2 text-sm font-bold"><UserCog size={15}/>{user.role}</div></div>
       <nav className="p-4 space-y-1 overflow-y-auto">{nav.map(([name,Icon])=><button key={name} onClick={()=>{setPage(name);setSidebar(false)}} className={`w-full flex items-center gap-3 rounded-xl px-4 py-3 text-left text-sm ${page===name?"bg-red-700/30 text-red-100 shadow-inner":"text-slate-400 hover:bg-white/5 hover:text-white"}`}><Icon size={18}/>{name}{name==="Approvals"&&approvals.length>0?<span className="ml-auto badge bg-red-500 text-white">{approvals.length}</span>:null}{name==="Conflicts"&&conflicts.count>0?<span className="ml-auto badge bg-amber-500 text-white">{conflicts.count}</span>:null}</button>)}</nav>
       <div className="mt-auto m-4 rounded-2xl bg-white/5 p-4"><div className="flex items-center gap-2 text-sm font-semibold"><UserRound size={17}/>{user.username}</div><p className="mt-2 text-xs text-slate-400">Human-in-the-loop planning mode</p><button onClick={logout} className="mt-3 text-xs text-slate-300 flex items-center gap-2"><LogOut size={14}/> Sign out</button></div>
@@ -271,7 +271,7 @@ function App() {
         {page==="What-if Simulation"&&<Simulation sim={sim} setSim={setSim} onRun={simulate} result={simResult} sections={sectionRows} currentKpis={kpis}/>} 
         {page==="History"&&<HistoryPanel history={history}/>} 
       </div>
-      <footer className="px-8 py-8 text-center text-xs text-slate-400">ABMS(Automatic Block Management System) • Indian Railways-inspired prototype UI • AI-assisted prioritization + OR-Tools CP-SAT • Synthetic/demo data • Human approval required</footer>
+      <footer className="px-8 py-8 text-center text-xs text-slate-400">ABMS (Automatic Block Management System) • Indian Railways-inspired prototype UI • AI-assisted prioritization + OR-Tools CP-SAT • Synthetic/demo data • Human approval required</footer>
     </main>
   </div>;
 }
