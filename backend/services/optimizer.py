@@ -33,6 +33,10 @@ def _priority(tasks: pd.DataFrame, assets: pd.DataFrame, reference_date: pd.Time
     x["importance"] = x["importance_asset"].fillna(x["importance"])
     x.drop(columns=["importance_asset"], inplace=True, errors="ignore")
     x["asset_importance_score"] = x["importance"].map(IMP).fillna(6)
+    if "is_emergency" not in x.columns:
+        x["is_emergency"] = False
+    emergency_mask = x["is_emergency"].astype(str).str.lower().isin(["true", "yes", "1"])
+    emergency_bonus = np.where(emergency_mask, 1000, 0)
     overdue_bonus = np.where(x["status"].astype(str).str.lower().eq("overdue"), 10, 0)
     x["priority_score"] = (
         x["severity_score"] * 3.5
@@ -40,6 +44,7 @@ def _priority(tasks: pd.DataFrame, assets: pd.DataFrame, reference_date: pd.Time
         + x["asset_importance_score"] * 1.5
         + x["urgency_score"] * 1.5
         + overdue_bonus
+        + emergency_bonus
     )
     return x.sort_values("priority_score", ascending=False).reset_index(drop=True)
 
@@ -102,7 +107,7 @@ def optimize_data(tasks: pd.DataFrame, assets: pd.DataFrame,
     if windows.empty or prioritized.empty:
         assignments = pd.DataFrame(columns=[
             "task_id","department","asset_id","severity","status","section",
-            "priority_score","block_id","window_id","date","block_start_time",
+            "priority_score","is_emergency","block_id","window_id","date","block_start_time",
             "block_end_time","duration_min","assignment_status","reason"
         ])
         blocks = pd.DataFrame(columns=[
@@ -173,7 +178,7 @@ def optimize_data(tasks: pd.DataFrame, assets: pd.DataFrame,
         selected = cand.loc[sorted(selected_ids)].copy() if selected_ids else pd.DataFrame(columns=cand.columns)
         if len(selected):
             selected = selected.merge(
-                prioritized[["task_id","department","asset_id","severity","status"]],
+                prioritized[["task_id","department","asset_id","severity","status","is_emergency"]],
                 on="task_id", how="left"
             )
             selected["block_start"] = selected["window_index"].map(windows["start_min"])
@@ -198,6 +203,7 @@ def optimize_data(tasks: pd.DataFrame, assets: pd.DataFrame,
                     "task_id": r["task_id"], "department": r["department"],
                     "asset_id": r["asset_id"], "severity": r["severity"],
                     "status": r["status"], "section": r["section"],
+                    "is_emergency": bool(str(r.get("is_emergency", False)).lower() in ("true", "yes", "1")),
                     "priority": float(r["priority_score"]), "window_id": "",
                     "date": "", "duration_min": int(round(float(r["estimated_duration_hours"]) * 60)),
                     "block_start": None, "block_end": None,
@@ -212,7 +218,7 @@ def optimize_data(tasks: pd.DataFrame, assets: pd.DataFrame,
         selected["block_id"] = selected["window_id"].apply(lambda x: f"OPT-{x}" if x else "")
         assignments = selected[[
             "task_id","department","asset_id","severity","status","section",
-            "priority_score","block_id","window_id","date","block_start_time",
+            "priority_score","is_emergency","block_id","window_id","date","block_start_time",
             "block_end_time","duration_min","assignment_status","reason"
         ]].copy()
 
@@ -265,3 +271,4 @@ def optimize_data(tasks: pd.DataFrame, assets: pd.DataFrame,
         "windows": len(windows),
         "reason": reason,
     }
+

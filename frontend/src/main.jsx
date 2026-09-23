@@ -254,7 +254,17 @@ function ApprovalQueue({ approvals, onAction, onRefresh, sections=[] }) {
 function EmergencyForm({ sections, onDone }) {
   const [form,setForm]=useState({task_id:"EMG-"+Date.now().toString().slice(-5),section:sections[0]?.section||"S01",department:"Engineering",estimated_duration_hours:1.5,asset_id:"",due_date:"",reason:"Critical defect detected"});
   const set=(k,v)=>setForm({...form,[k]:v});
-  async function submit(e){e.preventDefault();try{await api("/api/emergency",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form,severity:"Critical",safety_critical:"Yes",task_type:"Emergency Maintenance",status:"Pending"})});onDone("Emergency task added. Re-optimizing now…");}catch(err){onDone(err.message,true)}}
+  async function submit(e){
+    e.preventDefault();
+    try{
+      const r=await api("/api/emergency",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({...form,severity:"Critical",safety_critical:"Yes",task_type:"Emergency Maintenance",status:"Pending"})
+      });
+      onDone("Emergency task added. Re-optimizing now…",false,r.task);
+    }catch(err){onDone(err.message,true)}
+  }
   return <form onSubmit={submit} className="card p-5"><div className="flex items-center gap-2"><Siren className="text-red-600"/><h3 className="font-bold">Emergency Maintenance</h3></div>
     <div className="grid md:grid-cols-4 gap-3 mt-4">
       <label className="label">Task ID<input className="input" value={form.task_id} onChange={e=>set("task_id",e.target.value)}/></label>
@@ -286,15 +296,27 @@ function App() {
     const generated=!!status.plan_generated;
     setUploadReady(ready);
     setPlanGenerated(generated);
-    const [k,b,t,m,a,h,s,c,i,an,cf]=await Promise.all([
-      api("/api/kpis"),api("/api/blocks"),api("/api/tasks"),api("/api/map"),api("/api/approvals"),api("/api/history"),api("/api/sections"),api("/api/corridors"),api("/api/insights"),api("/api/analytics"),api("/api/conflicts")
+    const [k,b,t,m,a,h,s,c]=await Promise.all([
+      api("/api/kpis"),api("/api/blocks"),api("/api/tasks"),api("/api/map"),api("/api/approvals"),api("/api/history"),api("/api/sections"),api("/api/corridors")
     ]);
     setKpis(generated?k:{scheduled_tasks:0,optimized_blocks:0,average_block_utilization_pct:0,critical_tasks_scheduled:0,overdue_tasks_scheduled:0,multi_department_blocks:0,total_tasks:0});
     setBlocks(generated?b:[]);setTasks(generated?t:[]);setMap(generated?m:[]);setApprovals(generated?a:[]);
-    setHistory(h);setSections(s);setCorridors(c);setInsights(generated?(i.insights||[]):[]);
-    setAnalytics(generated?an:{department_load:[],status_mix:[],route_load:[]});
-    setConflicts(generated?(cf||{count:0,conflicts:[]}):{count:0,conflicts:[]});
+    setHistory(h);setSections(s);setCorridors(c);
+    setInsights([]);
+    setAnalytics({department_load:[],status_mix:[],route_load:[]});
+    setConflicts({count:0,conflicts:[]});
     if(s.length && !s.some(x=>x.section===sim.section)) setSim(v=>({...v,section:s[0].section}));
+
+    // Secondary panels load after the main dashboard is already interactive.
+    if(generated){
+      Promise.all([api("/api/insights"),api("/api/analytics"),api("/api/conflicts")])
+        .then(([i,an,cf])=>{
+          setInsights(i.insights||[]);
+          setAnalytics(an||{department_load:[],status_mix:[],route_load:[]});
+          setConflicts(cf||{count:0,conflicts:[]});
+        })
+        .catch(()=>{});
+    }
   }catch(e){setError(e.message)}finally{setLoading(false)}};
 
   useEffect(()=>{if(user)load()},[user]);
@@ -303,7 +325,13 @@ function App() {
 
   const departments=useMemo(()=>["All",...new Set(tasks.map(x=>x.department).filter(Boolean))],[tasks]);
   const filteredBlocks=useMemo(()=>blocks.filter(b=>section==="All"||String(b.section)===section),[blocks,section]);
-  const filteredTasks=useMemo(()=>tasks.filter(t=>(department==="All"||String(t.department)===department)&&(!search||Object.values(t).join(" ").toLowerCase().includes(search.toLowerCase()))).slice(0,40),[tasks,department,search]);
+  const filteredTasks=useMemo(()=>{
+    const isEmergency=t=>t?.is_emergency===true||["true","yes","1"].includes(String(t?.is_emergency||"").toLowerCase());
+    return [...tasks]
+      .filter(t=>(department==="All"||String(t.department)===department)&&(!search||Object.values(t).join(" ").toLowerCase().includes(search.toLowerCase())))
+      .sort((a,b)=>Number(isEmergency(b))-Number(isEmergency(a)))
+      .slice(0,40);
+  },[tasks,department,search]);
   const sectionLabel=(id)=>routeLabel(sectionRows.find(x=>String(x.section)===String(id))) || id;
   const chartData=useMemo(()=>{const m={};blocks.forEach(b=>{const s=sectionLabel(b.section);m[s]??={section:s,utilization:0,count:0};m[s].utilization+=Number(b.utilization_pct||0);m[s].count++});return Object.values(m).map(x=>({...x,utilization:Math.round(x.utilization/x.count)})).slice(0,10)},[blocks,sectionRows]);
 
@@ -319,7 +347,17 @@ function App() {
   async function approval(id,action){try{await api(`/api/approvals/${id}/${action}`,{method:"POST"});setToast(`${id} ${action === "approve" ? "approved" : action === "hold" ? "put on hold" : "rejected"}`);await load()}catch(e){setError(e.message)}}
   async function reopt(){try{setLoading(true);const r=await api("/api/reoptimize",{method:"POST"});setEmergencyMsg(`Emergency re-optimization complete: ${r.result.optimized_blocks} blocks regenerated.`);setToast("Network plan updated after emergency task");await load()}catch(e){setError(e.message)}finally{setLoading(false)}}
   async function simulate(){try{setLoading(true);const r=await api("/api/simulation",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...sim,scenario_name:"Maintenance window what-if scenario"})});setSimResult(r);setToast("What-if scenario calculated — active plan unchanged")}catch(e){setError(e.message)}finally{setLoading(false)}}
-  async function emergencyDone(msg,err){if(err){setError(msg);return}setEmergencyMsg(msg);await reopt()}
+  async function emergencyDone(msg,err,emergencyTask){
+    if(err){setError(msg);return}
+    if(emergencyTask){
+      setTasks(prev=>[
+        {...emergencyTask,is_emergency:true,assignment_status:"Pending Re-optimization"},
+        ...prev.filter(t=>String(t.task_id)!==String(emergencyTask.task_id))
+      ]);
+    }
+    setEmergencyMsg(msg);
+    await reopt();
+  }
   function login(u){setUser(u);localStorage.setItem("railSyncUser",JSON.stringify(u))}
   function logout(){localStorage.removeItem("railSyncUser");setUser(null)}
   if(!user)return <Login onLogin={login}/>;
@@ -374,7 +412,20 @@ function App() {
         {page==="Network Map"&&<div className="space-y-6"><div><h2 className="page-title">Network Status Map</h2><p className="page-sub">Satellite network view with maintenance status overlays.</p></div><RailwayMap map={map} onRouteSelect={setSelectedRoute}/>{selectedRoute&&<RouteDetailDrawer route={selectedRoute} onClose={()=>setSelectedRoute(null)} sections={sectionRows} tasks={tasks} blocks={blocks}/>}<div className="grid md:grid-cols-3 gap-4">{map.filter(x=>x.total_task_count).slice(0,12).map(s=><div className="card p-4 route-card" key={s.section}><div className="flex items-center justify-between gap-2"><b>{routeLabel(s)}</b><StatusPill status={s.status}/></div><p className="text-xs text-slate-500 mt-2">{routeCorridor(s)}</p><div className="mt-3 flex flex-wrap gap-2 text-[10px]"><span>🔴 {s.pending_count||0}</span><span>🟠 {s.ongoing_count||0}</span><span>🟢 {s.completed_count||0}</span><span>🔵 {s.scheduled_count||0}</span></div></div>)}</div><section className="card p-5"><div className="flex items-center justify-between gap-3"><div><h3 className="font-bold">Named Railway Corridors</h3><p className="text-xs text-slate-500 mt-1">Representative routes for the synthetic prototype network.</p></div><TrainFront className="text-red-600"/></div><div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 mt-4">{corridors.map(c=><div className="corridor-tile" key={c.corridor_id}><div className="corridor-line"/><div><b>{c.display_name}</b><p>{c.corridor}</p><span>{c.region}</span></div></div>)}</div></section></div>}
 
         {page==="Block Plans"&&<BlockPlans blocks={filteredBlocks} sections={sectionRows} onOptimize={runOptimize}/>} 
-        {page==="Maintenance"&&<div className="space-y-6"><EmergencyForm sections={sectionRows} onDone={emergencyDone}/><div className="flex justify-between items-end"><div><h2 className="page-title">Maintenance Task Queue</h2><p className="page-sub">Dynamic tasks from the active dataset.</p></div><button className="danger-btn" onClick={reopt}><RefreshCw size={16}/> Re-optimize</button></div>{emergencyMsg&&<div className="alert-blue">{emergencyMsg}</div>}<div className="card overflow-auto"><div className="p-4 flex gap-3"><div className="relative flex-1"><Search className="absolute left-3 top-2.5 text-slate-400" size={16}/><input className="input pl-9" placeholder="Search tasks, assets or routes..." value={search} onChange={e=>setSearch(e.target.value)}/></div><select className="input w-48" value={department} onChange={e=>setDepartment(e.target.value)}>{departments.map(x=><option key={x}>{x}</option>)}</select></div><table className="table"><thead><tr><th>Task</th><th>Asset</th><th>Department</th><th>Route</th><th>Severity</th><th>Status</th><th>Assignment</th></tr></thead><tbody>{filteredTasks.map(t=><tr key={t.task_id}><td className="font-semibold">{t.task_id}</td><td>{t.asset_id}</td><td>{t.department}</td><td>{sectionLabel(t.section)}</td><td>{t.severity}</td><td><StatusPill status={String(t.status||"").toLowerCase()==="overdue"?"pending":String(t.status||"").toLowerCase()}/></td><td>{t.assignment_status}</td></tr>)}</tbody></table></div></div>}
+        {page==="Maintenance"&&<div className="space-y-6"><EmergencyForm sections={sectionRows} onDone={emergencyDone}/><div className="flex justify-between items-end"><div><h2 className="page-title">Maintenance Task Queue</h2><p className="page-sub">Dynamic tasks from the active dataset.</p></div><button className="danger-btn" onClick={reopt}><RefreshCw size={16}/> Re-optimize</button></div>{emergencyMsg&&<div className="alert-blue">{emergencyMsg}</div>}<div className="card overflow-auto"><div className="p-4 flex gap-3"><div className="relative flex-1"><Search className="absolute left-3 top-2.5 text-slate-400" size={16}/><input className="input pl-9" placeholder="Search tasks, assets or routes..." value={search} onChange={e=>setSearch(e.target.value)}/></div><select className="input w-48" value={department} onChange={e=>setDepartment(e.target.value)}>{departments.map(x=><option key={x}>{x}</option>)}</select></div><table className="table"><thead><tr><th>Task</th><th>Asset</th><th>Department</th><th>Route</th><th>Severity</th><th>Status</th><th>Assignment</th></tr></thead><tbody>{filteredTasks.map(t=>{
+  const emergency=t?.is_emergency===true||["true","yes","1"].includes(String(t?.is_emergency||"").toLowerCase());
+  return <tr key={t.task_id} className={emergency?"bg-red-50/80":""}>
+    <td className="font-semibold">
+      <div className="flex items-center gap-2">
+        {emergency&&<span className="badge bg-red-600 text-white">🚨 EMERGENCY</span>}
+        <span>{t.task_id}</span>
+      </div>
+    </td>
+    <td>{t.asset_id}</td><td>{t.department}</td><td>{sectionLabel(t.section)}</td><td>{t.severity}</td>
+    <td><StatusPill status={String(t.status||"").toLowerCase()==="overdue"?"pending":String(t.status||"").toLowerCase()}/></td>
+    <td>{t.assignment_status}</td>
+  </tr>
+})}</tbody></table></div></div>}
 
         {page==="Approvals"&&<div className="space-y-6"><div><h2 className="page-title">Controller Approval Queue</h2><p className="page-sub">Recommendations require human review before finalization.</p></div><ApprovalQueue approvals={approvals} onAction={approval} sections={sectionRows}/></div>}
         {page==="Conflicts"&&<ConflictsPage conflicts={conflicts} sections={sectionRows}/>} 
@@ -538,3 +589,4 @@ function HistoryPanel({history}){
 }
 
 createRoot(document.getElementById("root")).render(<App/>);
+

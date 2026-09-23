@@ -439,6 +439,7 @@ def add_emergency(task: EmergencyTask):
     due = task.due_date or datetime.now().date().isoformat()
     row = task.model_dump()
     row["due_date"] = due
+    row["is_emergency"] = True
     updated = pd.concat([base, pd.DataFrame([row])], ignore_index=True)
     updated.to_csv(path, index=False)
     add_history("EMERGENCY_TASK_ADDED", f"{task.task_id} at {task.section}")
@@ -485,17 +486,29 @@ def map_data():
     blocks = load_csv(output_path("live_optimized_block_plan.csv", "phase3_optimized_block_plan.csv"))
     state = read_state()
     amap = state.get("approvals", {})
+
+    # Pre-group once instead of filtering the full DataFrame for every section.
+    raw_sec = raw_tasks.assign(_section=raw_tasks["section"].astype(str))
+    ass_sec = assignments.assign(_section=assignments["section"].astype(str))
+    block_sec = blocks.assign(_section=blocks["section"].astype(str))
+
+    raw_groups = {str(k): g for k, g in raw_sec.groupby("_section", sort=False)}
+    ass_groups = {str(k): g for k, g in ass_sec.groupby("_section", sort=False)}
+    block_groups = {str(k): g for k, g in block_sec.groupby("_section", sort=False)}
+
     result = []
     for r in sections.to_dict(orient="records"):
         sid = str(r["section"])
-        raw = raw_tasks[raw_tasks["section"].astype(str) == sid]
-        st = assignments[assignments["section"].astype(str) == sid]
-        sb = blocks[blocks["section"].astype(str) == sid]
-        pending = int(raw["status"].astype(str).str.lower().isin(["pending", "overdue"]).sum()) if len(raw) else 0
-        ongoing = int(raw["status"].astype(str).str.lower().eq("ongoing").sum()) if len(raw) else 0
-        completed = int(raw["status"].astype(str).str.lower().eq("completed").sum()) if len(raw) else 0
-        scheduled = int(st["assignment_status"].astype(str).eq("Scheduled").sum()) if len(st) and "assignment_status" in st else 0
-        approved_blocks = [amap.get(str(b), "pending_approval") for b in sb["block_id"].astype(str)] if len(sb) else []
+        raw = raw_groups.get(sid)
+        st = ass_groups.get(sid)
+        sb = block_groups.get(sid)
+
+        pending = int(raw["status"].astype(str).str.lower().isin(["pending", "overdue"]).sum()) if raw is not None else 0
+        ongoing = int(raw["status"].astype(str).str.lower().eq("ongoing").sum()) if raw is not None else 0
+        completed = int(raw["status"].astype(str).str.lower().eq("completed").sum()) if raw is not None else 0
+        scheduled = int(st["assignment_status"].astype(str).eq("Scheduled").sum()) if st is not None and "assignment_status" in st else 0
+        approved_blocks = [amap.get(str(b), "pending_approval") for b in sb["block_id"].astype(str)] if sb is not None and len(sb) else []
+
         if "approved" in approved_blocks:
             status = "approved"
         elif ongoing:
@@ -506,16 +519,17 @@ def map_data():
             status = "completed"
         else:
             status = "available"
+
         result.append({
             **r,
             "status": status,
-            "task_count": int(len(st)),
-            "total_task_count": int(len(raw)),
+            "task_count": int(len(st)) if st is not None else 0,
+            "total_task_count": int(len(raw)) if raw is not None else 0,
             "pending_count": pending,
             "ongoing_count": ongoing,
             "completed_count": completed,
             "scheduled_count": scheduled,
-            "block_count": int(len(sb)),
+            "block_count": int(len(sb)) if sb is not None else 0,
         })
     return result
 
@@ -633,3 +647,4 @@ def baseline():
 
 def _legacy_kpi_compat():
     return get_kpis()
+
