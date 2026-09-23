@@ -111,30 +111,121 @@ function RailwayMap({ map, height='h-[540px]', onRouteSelect }) {
     <div className="px-5 py-3 border-t border-slate-100 text-[11px] text-slate-500 flex flex-wrap justify-between gap-2"><span><b>Click</b> a route or numbered task marker for details.</span><span>Station mapping is demo data; production can use authorized railway GIS coordinates.</span></div>
   </section>;
 }
-function DatasetPanel({ onDone }) {
-  const [type,setType]=useState("maintenance"), [file,setFile]=useState(null), [result,setResult]=useState(null), [busy,setBusy]=useState(false);
-  async function upload() {
-    if(!file) return;
-    setBusy(true); setResult(null);
-    const fd=new FormData(); fd.append("dataset_type",type); fd.append("file",file);
-    try { const r=await api("/api/upload",{method:"POST",body:fd}); setResult(r); onDone(); }
-    catch(e){ setResult({error:e.message}); } finally { setBusy(false); }
+function DatasetPanel({ onDone, onOptimize, optimizing }) {
+  const [deptResults,setDeptResults]=useState({});
+  const [busy,setBusy]=useState(false);
+
+  const departmentUploads = [
+    { key:"engineering_tasks", label:"Engineering", kind:"Maintenance Tasks", desc:"Track / engineering maintenance work" },
+    { key:"snt_tasks", label:"S&T", kind:"Maintenance Tasks", desc:"Signal & Telecommunication work" },
+    { key:"traction_tasks", label:"Traction", kind:"Maintenance Tasks", desc:"OHE / traction maintenance work" },
+    { key:"engineering_assets", label:"Engineering", kind:"Assets", desc:"Engineering asset master" },
+    { key:"snt_assets", label:"S&T", kind:"Assets", desc:"S&T asset master" },
+    { key:"traction_assets", label:"Traction", kind:"Assets", desc:"Traction / OHE asset master" },
+  ];
+
+  useEffect(()=>{
+    api("/api/maintenance/upload-status")
+      .then(status=>{
+        const next={
+          engineering_tasks: {...(status.tasks?.Engineering||{}), uploaded: !!status.tasks?.Engineering?.uploaded},
+          snt_tasks: {...(status.tasks?.["S&T"]||{}), uploaded: !!status.tasks?.["S&T"]?.uploaded},
+          traction_tasks: {...(status.tasks?.Traction||{}), uploaded: !!status.tasks?.Traction?.uploaded},
+          engineering_assets: {...(status.assets?.Engineering||{}), uploaded: !!status.assets?.Engineering?.uploaded},
+          snt_assets: {...(status.assets?.["S&T"]||{}), uploaded: !!status.assets?.["S&T"]?.uploaded},
+          traction_assets: {...(status.assets?.Traction||{}), uploaded: !!status.assets?.Traction?.uploaded},
+        };
+        setDeptResults(next);
+      })
+      .catch(()=>{});
+  },[]);
+
+  async function uploadDepartment(datasetType, selectedFile) {
+    if(!selectedFile) return;
+    setBusy(true);
+    setDeptResults(prev=>({...prev,[datasetType]:{...prev[datasetType],busy:true}}));
+    const fd=new FormData();
+    fd.append("dataset_type",datasetType);
+    fd.append("file",selectedFile);
+    try {
+      const r=await api("/api/upload",{method:"POST",body:fd});
+      setDeptResults(prev=>({...prev,[datasetType]:{...r,busy:false,uploaded:true}}));
+      onDone();
+    } catch(e) {
+      setDeptResults(prev=>({...prev,[datasetType]:{...prev[datasetType],error:e.message,busy:false}}));
+    } finally { setBusy(false); }
   }
+
+  const allUploaded=departmentUploads.every(item=>{
+    const r=deptResults[item.key];
+    return !!(r?.uploaded || (Number(r?.records||0)>0));
+  });
+  const uploadedCount=departmentUploads.filter(item=>{
+    const r=deptResults[item.key];
+    return !!(r?.uploaded || (Number(r?.records||0)>0));
+  }).length;
+  const taskTotal=departmentUploads.filter(x=>x.key.endsWith("_tasks")).reduce((n,x)=>n+Number(deptResults[x.key]?.records||0),0);
+  const assetTotal=departmentUploads.filter(x=>x.key.endsWith("_assets")).reduce((n,x)=>n+Number(deptResults[x.key]?.records||0),0);
+
   return <section className="card p-5">
-    <div className="flex items-center gap-2"><Upload size={19} className="text-blue-600"/><h3 className="font-bold">Dynamic Dataset Upload</h3></div>
-    <p className="text-xs text-slate-500 mt-1">Upload a CSV, validate it, then generate a fresh optimization plan.</p>
-    <div className="mt-4 grid md:grid-cols-3 gap-3">
-      <select className="input" value={type} onChange={e=>setType(e.target.value)}>
-        <option value="maintenance">Maintenance Tasks</option><option value="assets">Assets</option>
-        <option value="trains">Train Schedule</option><option value="corridor">Corridor Availability</option>
-        <option value="sections">Sections</option><option value="forecast">Goods Forecast</option>
-      </select>
-      <input className="input" type="file" accept=".csv" onChange={e=>setFile(e.target.files?.[0]||null)}/>
-      <button className="primary" disabled={!file||busy} onClick={upload}>{busy?"Uploading...":"Upload & Validate"}</button>
+    <div className="flex items-center gap-2">
+      <Upload size={19} className="text-blue-600"/>
+      <h3 className="font-bold">Department-wise Maintenance Data</h3>
     </div>
-    {result && <div className={`mt-4 rounded-xl p-4 text-sm ${result.error?"bg-red-50 text-red-700":"bg-emerald-50 text-emerald-700"}`}>
-      {result.error ? result.error : <><b>✓ {result.filename}</b> — {result.records} records. {result.warnings?.length ? `Warnings: ${result.warnings.join("; ")}` : "Validation passed."}</>}
-    </div>}
+    <p className="text-xs text-slate-500 mt-1">
+      Upload Engineering, S&T and Traction tasks/assets separately. ABMS automatically merges them into the unified datasets used by the optimizer.
+    </p>
+
+    <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+      {departmentUploads.map(item=>{
+        const r=deptResults[item.key];
+        return <div key={item.key} className="rounded-2xl border border-slate-200 p-4 bg-slate-50/60">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="font-bold text-sm">{item.label}</div>
+              <div className="text-[11px] text-slate-500">{item.kind}</div>
+            </div>
+            <span className="text-[10px] px-2 py-1 rounded-full bg-white border border-slate-200 text-slate-500">CSV</span>
+          </div>
+          <p className="text-[11px] text-slate-500 mt-2">{item.desc}</p>
+          <input className="input mt-3 text-xs" type="file" accept=".csv"
+            onChange={e=>e.target.files?.[0] && uploadDepartment(item.key,e.target.files[0])}/>
+          {r && <div className={`mt-2 text-[11px] ${r.error?"text-red-600":"text-emerald-700"}`}>
+            {r.error ? r.error : <>✓ {r.records||0} records uploaded{r.merged?.total_records ? ` • unified total ${r.merged.total_records}` : ""}</>}
+          </div>}
+        </div>
+      })}
+    </div>
+
+    <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
+      <div className="text-sm font-bold text-slate-800">ABMS Data Flow</div>
+      <div className="mt-2 text-xs text-slate-600 flex flex-wrap gap-2 items-center">
+        <span className="px-2 py-1 rounded-lg bg-white border">Engineering</span>
+        <span>+</span>
+        <span className="px-2 py-1 rounded-lg bg-white border">S&T</span>
+        <span>+</span>
+        <span className="px-2 py-1 rounded-lg bg-white border">Traction</span>
+        <span>→</span>
+        <span className="px-2 py-1 rounded-lg bg-blue-100 border border-blue-200 font-semibold">Unified Maintenance / Asset Dataset</span>
+        <span>→</span>
+        <span className="px-2 py-1 rounded-lg bg-white border">Priority + CP-SAT Optimization</span>
+      </div>
+    </div>
+
+    <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <div className="text-sm font-bold text-slate-800">Ready to generate the optimized plan</div>
+          <p className="text-xs text-slate-500 mt-1">
+            {uploadedCount}/6 department inputs uploaded • {taskTotal} tasks • {assetTotal} assets. The backend performs the merge automatically.
+          </p>
+        </div>
+        <button className="primary whitespace-nowrap" disabled={!allUploaded || busy || optimizing} onClick={onOptimize}>
+          <Play size={16}/>{optimizing?"Generating Plan...":"Generate Optimized Plan"}
+        </button>
+      </div>
+      {!allUploaded && <p className="text-[11px] text-amber-700 mt-3">Upload all 3 department task files and all 3 department asset files before generating the plan.</p>}
+    </div>
   </section>;
 }
 
@@ -181,6 +272,8 @@ function App() {
   const [darkMode,setDarkMode]=useState(()=>localStorage.getItem("railSyncTheme")==="dark");
   const [page,setPage]=useState("Dashboard"), [sidebar,setSidebar]=useState(false), [loading,setLoading]=useState(false), [error,setError]=useState("");
   const [kpis,setKpis]=useState({scheduled_tasks:0,optimized_blocks:0,average_block_utilization_pct:0,critical_tasks_scheduled:0,overdue_tasks_scheduled:0,multi_department_blocks:0,total_tasks:0});
+  const [planGenerated,setPlanGenerated]=useState(false);
+  const [uploadReady,setUploadReady]=useState(false);
   const [blocks,setBlocks]=useState([]),[tasks,setTasks]=useState([]),[map,setMap]=useState([]),[approvals,setApprovals]=useState([]),[history,setHistory]=useState([]),[sectionRows,setSections]=useState([]),[corridors,setCorridors]=useState([]);
   const [insights,setInsights]=useState([]),[analytics,setAnalytics]=useState({department_load:[],status_mix:[],route_load:[]}),[conflicts,setConflicts]=useState({count:0,conflicts:[]}),[selectedRoute,setSelectedRoute]=useState(null);
   const [search,setSearch]=useState(""),[section,setSection]=useState("All"),[department,setDepartment]=useState("All"),[toast,setToast]=useState("");
@@ -188,10 +281,19 @@ function App() {
   const [emergencyMsg,setEmergencyMsg]=useState("");
 
   const load=async()=>{setLoading(true);setError("");try{
+    const status=await api("/api/maintenance/upload-status");
+    const ready=!!status.all_uploaded;
+    const generated=!!status.plan_generated;
+    setUploadReady(ready);
+    setPlanGenerated(generated);
     const [k,b,t,m,a,h,s,c,i,an,cf]=await Promise.all([
       api("/api/kpis"),api("/api/blocks"),api("/api/tasks"),api("/api/map"),api("/api/approvals"),api("/api/history"),api("/api/sections"),api("/api/corridors"),api("/api/insights"),api("/api/analytics"),api("/api/conflicts")
     ]);
-    setKpis(k);setBlocks(b);setTasks(t);setMap(m);setApprovals(a);setHistory(h);setSections(s);setCorridors(c);setInsights(i.insights||[]);setAnalytics(an);setConflicts(cf||{count:0,conflicts:[]});
+    setKpis(generated?k:{scheduled_tasks:0,optimized_blocks:0,average_block_utilization_pct:0,critical_tasks_scheduled:0,overdue_tasks_scheduled:0,multi_department_blocks:0,total_tasks:0});
+    setBlocks(generated?b:[]);setTasks(generated?t:[]);setMap(generated?m:[]);setApprovals(generated?a:[]);
+    setHistory(h);setSections(s);setCorridors(c);setInsights(generated?(i.insights||[]):[]);
+    setAnalytics(generated?an:{department_load:[],status_mix:[],route_load:[]});
+    setConflicts(generated?(cf||{count:0,conflicts:[]}):{count:0,conflicts:[]});
     if(s.length && !s.some(x=>x.section===sim.section)) setSim(v=>({...v,section:s[0].section}));
   }catch(e){setError(e.message)}finally{setLoading(false)}};
 
@@ -205,7 +307,15 @@ function App() {
   const sectionLabel=(id)=>routeLabel(sectionRows.find(x=>String(x.section)===String(id))) || id;
   const chartData=useMemo(()=>{const m={};blocks.forEach(b=>{const s=sectionLabel(b.section);m[s]??={section:s,utilization:0,count:0};m[s].utilization+=Number(b.utilization_pct||0);m[s].count++});return Object.values(m).map(x=>({...x,utilization:Math.round(x.utilization/x.count)})).slice(0,10)},[blocks,sectionRows]);
 
-  async function runOptimize(){try{setLoading(true);const r=await api("/api/optimize",{method:"POST"});setToast(`Optimization complete: ${r.result.scheduled_tasks} tasks scheduled`);await load()}catch(e){setError(e.message)}finally{setLoading(false)}}
+  async function runOptimize(){try{
+    setLoading(true);
+    const status=await api("/api/maintenance/upload-status");
+    if(!status.all_uploaded) throw new Error("Upload all 3 department task files and all 3 department asset files before generating the plan.");
+    const r=await api("/api/optimize",{method:"POST"});
+    setPlanGenerated(true);
+    setToast(`Optimization complete: ${r.result.scheduled_tasks} tasks scheduled`);
+    await load();
+  }catch(e){setError(e.message)}finally{setLoading(false)}}
   async function approval(id,action){try{await api(`/api/approvals/${id}/${action}`,{method:"POST"});setToast(`${id} ${action === "approve" ? "approved" : action === "hold" ? "put on hold" : "rejected"}`);await load()}catch(e){setError(e.message)}}
   async function reopt(){try{setLoading(true);const r=await api("/api/reoptimize",{method:"POST"});setEmergencyMsg(`Emergency re-optimization complete: ${r.result.optimized_blocks} blocks regenerated.`);setToast("Network plan updated after emergency task");await load()}catch(e){setError(e.message)}finally{setLoading(false)}}
   async function simulate(){try{setLoading(true);const r=await api("/api/simulation",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...sim,scenario_name:"Maintenance window what-if scenario"})});setSimResult(r);setToast("What-if scenario calculated — active plan unchanged")}catch(e){setError(e.message)}finally{setLoading(false)}}
@@ -243,9 +353,10 @@ function App() {
         {toast&&<div className="mb-5 alert-green"><CheckCircle2 size={17}/>{toast}</div>}
 
         {page==="Dashboard"&&<div className="space-y-6">
-          <div className="dashboard-hero text-white"><div className="hero-glow"/><div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5"><div><p className="text-[10px] font-black tracking-[.2em] text-red-200">RAILWAY OPERATIONS DECISION SUPPORT</p><h2 className="mt-2 text-3xl font-black tracking-tight">Network maintenance command view</h2><p className="mt-2 text-sm text-slate-200 max-w-2xl">Integrate maintenance demand, asset risk and operational constraints → optimize blocks → explain recommendations → obtain controller approval.</p></div><div className="flex gap-2"><button className="hero-button" onClick={runOptimize}><Play size={16}/> Generate Plan</button><button className="hero-button" onClick={()=>setPage("Conflicts")}><ShieldAlert size={16}/> {conflicts.count} Conflicts</button></div></div></div>
+          <div className="dashboard-hero text-white"><div className="hero-glow"/><div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5"><div><p className="text-[10px] font-black tracking-[.2em] text-red-200">RAILWAY OPERATIONS DECISION SUPPORT</p><h2 className="mt-2 text-3xl font-black tracking-tight">Network maintenance command view</h2><p className="mt-2 text-sm text-slate-200 max-w-2xl">Integrate maintenance demand, asset risk and operational constraints → optimize blocks → explain recommendations → obtain controller approval.</p></div><div className="flex gap-2"><button className="hero-button disabled:opacity-50 disabled:cursor-not-allowed" disabled={!uploadReady||loading} onClick={runOptimize}><Play size={16}/> {loading?"Generating...":"Generate Plan"}</button><button className="hero-button" onClick={()=>setPage("Conflicts")}><ShieldAlert size={16}/> {conflicts.count} Conflicts</button></div></div></div>
           <RoleQuickView role={user.role} kpis={kpis} approvals={approvals.length} conflicts={conflicts.count}/>
-          <DatasetPanel onDone={load}/>
+          <DatasetPanel onDone={load} onOptimize={runOptimize} optimizing={loading}/>
+          {!planGenerated ? <section className="card p-6 border-dashed border-2 border-slate-300 bg-slate-50"><div className="text-center max-w-2xl mx-auto"><Blocks className="mx-auto text-slate-400" size={34}/><h3 className="mt-3 text-lg font-black text-slate-800">No optimized plan generated yet</h3><p className="mt-2 text-sm text-slate-500">Upload all 3 department task files and all 3 department asset files above, then click <b>Generate Optimized Plan</b>. ABMS will create the unified dataset and run the CP-SAT optimizer.</p><div className="mt-4 text-xs font-semibold text-slate-600">{uploadReady?"All 6 inputs are ready. Generate the plan when you are ready.":"Waiting for all 6 department inputs."}</div></div></section> : <>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <MetricCard icon={Wrench} label="Scheduled Tasks" value={kpis.scheduled_tasks} sub={`${kpis.total_tasks} tasks considered`} tone="blue"/>
             <MetricCard icon={Blocks} label="Optimized Blocks" value={kpis.optimized_blocks} sub="Recommended maintenance windows" tone="green"/>
@@ -255,6 +366,7 @@ function App() {
           <section className="card p-5"><div className="flex justify-between"><div><h3 className="font-bold">Route-wise block utilization</h3><p className="text-xs text-slate-500">Optimized maintenance window usage</p></div><Gauge className="text-red-600"/></div><div className="h-64 mt-4">{chartData.length?<ResponsiveContainer width="100%" height="100%"><BarChart data={chartData}><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="section" tick={{fontSize:10}}/><YAxis unit="%"/><Tooltip/><Bar dataKey="utilization" name="Utilization %" radius={[6,6,0,0]}/></BarChart></ResponsiveContainer>:<Empty/>}</div></section>
           <div className="grid gap-6 xl:grid-cols-2"><InsightsPanel insights={insights}/><ConflictSummary conflicts={conflicts}/></div>
           <RailwayMap map={map} onRouteSelect={setSelectedRoute}/>
+          </>}
           {selectedRoute&&<RouteDetailDrawer route={selectedRoute} onClose={()=>setSelectedRoute(null)} sections={sectionRows} tasks={tasks} blocks={blocks}/>}
           <ApprovalQueue approvals={approvals.slice(0,3)} onAction={approval} sections={sectionRows}/>
         </div>}

@@ -1,0 +1,35 @@
+asset_id,asset_type,department,section,location_km,importance,last_maintenance
+AST035,Axle Counter,S&T,S15,11.5,High,2026-08-08
+AST036,Interlocking,S&T,S03,0.3,Low,2026-08-08
+AST037,Signal,S&T,S19,0.2,Low,2026-08-21
+AST038,Signal,S&T,S02,0.6,High,2026-08-11
+AST039,Axle Counter,S&T,S03,3.7,Low,2026-08-16
+AST040,Axle Counter,S&T,S07,4.2,Low,2026-08-19
+AST041,Signal,S&T,S16,17.8,Medium,2026-08-07
+AST042,Signal,S&T,S04,9.2,Medium,2026-08-14
+AST043,Interlocking,S&T,S14,11.6,High,2026-08-22
+AST044,Signal,S&T,S04,5.6,Medium,2026-08-26
+AST045,Signal,S&T,S04,2.7,Low,2026-08-15
+AST046,Interlocking,S&T,S05,5.1,Medium,2026-08-08
+AST047,Interlocking,S&T,S03,12.4,Low,2026-08-04
+AST048,Axle Counter,S&T,S02,8.7,High,2026-08-03
+AST049,Signal,S&T,S08,4.2,Medium,2026-08-07
+AST050,Signal,S&T,S13,1.4,High,2026-08-13
+AST051,Interlocking,S&T,S09,5.5,Low,2026-08-24
+AST052,Axle Counter,S&T,S18,17.2,High,2026-08-07
+AST053,Signal,S&T,S10,8.5,Low,2026-08-24
+AST054,Signal,S&T,S18,17.9,High,2026-08-02
+AST055,Interlocking,S&T,S19,15.0,Low,2026-08-06
+AST056,Axle Counter,S&T,S02,0.7,High,2026-08-03
+AST057,Signal,S&T,S20,5.5,High,2026-08-13
+AST058,Axle Counter,S&T,S04,3.4,Low,2026-08-02
+AST059,Signal,S&T,S20,3.4,Low,2026-08-19
+AST060,Interlocking,S&T,S17,13.1,High,2026-08-22
+AST061,Signal,S&T,S11,3.7,High,2026-08-22
+AST062,Interlocking,S&T,S10,2.8,High,2026-08-01
+AST063,Axle Counter,S&T,S15,25.5,High,2026-08-03
+AST064,Signal,S&T,S18,12.1,High,2026-08-12
+AST065,Signal,S&T,S03,5.7,High,2026-08-15
+AST066,Axle Counter,S&T,S18,7.2,Low,2026-08-17
+AST067,Axle Counter,S&T,S01,20.7,Medium,2026-08-22
+AST068,Signal,S&T,S04,3.7,High,2026-08-24

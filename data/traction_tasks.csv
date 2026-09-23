@@ -1,0 +1,107 @@
+task_id,department,asset_id,section,location_km,task_type,severity,safety_critical,due_date,estimated_duration_hours,status
+M002,Traction,AST069,S18,6.5,OHE Component Repair,High,Yes,2026-09-13,1.0,Overdue
+M010,Traction,AST080,S05,24.1,Sectioning Equipment Check,Medium,No,2026-08-30,1.0,Ongoing
+M011,Traction,AST091,S11,8.4,OHE Inspection,Low,No,2026-09-19,1.0,Completed
+M014,Traction,AST071,S16,20.6,OHE Inspection,High,No,2026-09-29,1.5,Completed
+M016,Traction,AST069,S18,6.5,Sectioning Equipment Check,Medium,No,2026-09-19,1.0,Ongoing
+M017,Traction,AST076,S18,19.9,OHE Inspection,Critical,No,2026-09-17,1.5,Ongoing
+M019,Traction,AST080,S05,24.1,OHE Component Repair,Medium,No,2026-09-24,0.5,Ongoing
+M021,Traction,AST091,S11,8.4,Pantograph Clearance Check,Medium,No,2026-09-01,1.5,Completed
+M025,Traction,AST078,S02,1.8,Transformer Inspection,High,Yes,2026-09-23,1.5,Pending
+M028,Traction,AST087,S09,12.4,Sectioning Equipment Check,Low,No,2026-09-30,1.0,Completed
+M032,Traction,AST095,S20,5.4,OHE Component Repair,Low,No,2026-09-12,1.0,Completed
+M033,Traction,AST069,S18,6.5,Pantograph Clearance Check,Medium,No,2026-08-26,0.5,Ongoing
+M035,Traction,AST091,S11,8.4,OHE Inspection,Medium,No,2026-09-06,1.0,Completed
+M036,Traction,AST080,S05,24.1,OHE Inspection,High,Yes,2026-08-29,1.0,Ongoing
+M037,Traction,AST090,S04,6.1,Sectioning Equipment Check,High,Yes,2026-09-21,2.0,Pending
+M038,Traction,AST087,S09,12.4,OHE Component Repair,Low,No,2026-09-14,0.5,Completed
+M039,Traction,AST095,S20,5.4,OHE Component Repair,Medium,No,2026-08-31,0.5,Completed
+M049,Traction,AST096,S10,2.7,Sectioning Equipment Check,Medium,No,2026-09-02,0.5,Completed
+M051,Traction,AST090,S04,6.1,OHE Component Repair,High,No,2026-09-23,1.0,Pending
+M053,Traction,AST082,S14,11.6,OHE Component Repair,Medium,No,2026-09-27,1.0,Pending
+M056,Traction,AST088,S18,22.4,Sectioning Equipment Check,Low,No,2026-09-17,1.0,Ongoing
+M057,Traction,AST073,S05,27.3,Transformer Inspection,Medium,No,2026-09-10,1.0,Ongoing
+M060,Traction,AST071,S16,20.6,Pantograph Clearance Check,Low,No,2026-09-04,1.0,Completed
+M061,Traction,AST069,S18,6.5,Pantograph Clearance Check,High,No,2026-09-29,1.5,Ongoing
+M062,Traction,AST075,S04,13.2,OHE Inspection,High,Yes,2026-09-13,2.0,Pending
+M063,Traction,AST078,S02,1.8,Transformer Inspection,High,Yes,2026-09-14,1.0,Pending
+M064,Traction,AST082,S14,11.6,OHE Component Repair,Low,No,2026-09-04,0.5,Pending
+M068,Traction,AST072,S14,0.6,Pantograph Clearance Check,Medium,No,2026-09-19,0.5,Pending
+M071,Traction,AST073,S05,27.3,Transformer Inspection,Medium,No,2026-09-03,1.5,Ongoing
+M076,Traction,AST076,S18,19.9,OHE Component Repair,Medium,No,2026-10-02,1.0,Ongoing
+M078,Traction,AST092,S13,1.7,OHE Component Repair,High,Yes,2026-08-28,1.5,Pending
+M080,Traction,AST094,S07,13.8,OHE Component Repair,Low,No,2026-10-04,1.0,Ongoing
+M084,Traction,AST088,S18,22.4,Transformer Inspection,Medium,No,2026-09-09,1.5,Ongoing
+M085,Traction,AST076,S18,19.9,OHE Component Repair,High,No,2026-09-29,1.0,Ongoing
+M086,Traction,AST080,S05,24.1,OHE Inspection,Medium,No,2026-10-02,0.5,Ongoing
+M087,Traction,AST069,S18,6.5,Sectioning Equipment Check,Low,No,2026-09-28,1.0,Ongoing
+M089,Traction,AST080,S05,24.1,Sectioning Equipment Check,Critical,Yes,2026-09-25,2.5,Ongoing
+M090,Traction,AST074,S15,18.0,OHE Inspection,Low,No,2026-08-30,0.5,Ongoing
+M092,Traction,AST084,S08,8.4,Sectioning Equipment Check,High,No,2026-09-30,1.5,Ongoing
+M095,Traction,AST072,S14,0.6,OHE Inspection,High,Yes,2026-09-18,2.0,Pending
+M096,Traction,AST079,S04,10.9,OHE Inspection,Low,No,2026-08-29,1.0,Pending
+M102,Traction,AST097,S13,2.6,Pantograph Clearance Check,Medium,No,2026-10-01,0.5,Pending
+M104,Traction,AST069,S18,6.5,Pantograph Clearance Check,High,Yes,2026-09-02,2.0,Ongoing
+M106,Traction,AST096,S10,2.7,Sectioning Equipment Check,Medium,No,2026-09-13,0.5,Completed
+M110,Traction,AST099,S06,15.0,Sectioning Equipment Check,Low,No,2026-09-18,0.5,Ongoing
+M118,Traction,AST081,S01,18.6,Sectioning Equipment Check,Medium,No,2026-09-15,0.5,Pending
+M119,Traction,AST088,S18,22.4,Sectioning Equipment Check,Medium,No,2026-08-31,0.5,Ongoing
+M120,Traction,AST082,S14,11.6,Transformer Inspection,High,Yes,2026-09-13,1.5,Pending
+M124,Traction,AST082,S14,11.6,OHE Component Repair,Medium,No,2026-09-14,1.0,Pending
+M125,Traction,AST100,S01,7.3,Transformer Inspection,High,Yes,2026-09-13,2.0,Pending
+M128,Traction,AST082,S14,11.6,Sectioning Equipment Check,Medium,No,2026-09-25,1.5,Pending
+M130,Traction,AST079,S04,10.9,Transformer Inspection,Low,No,2026-09-18,0.5,Pending
+M134,Traction,AST074,S15,18.0,OHE Inspection,Low,No,2026-09-03,0.5,Ongoing
+M136,Traction,AST097,S13,2.6,Pantograph Clearance Check,Medium,No,2026-09-21,0.5,Pending
+M137,Traction,AST086,S13,2.4,OHE Component Repair,Medium,No,2026-09-04,0.5,Pending
+M140,Traction,AST090,S04,6.1,OHE Component Repair,High,Yes,2026-09-16,1.0,Pending
+M143,Traction,AST097,S13,2.6,Transformer Inspection,Critical,Yes,2026-09-07,2.0,Pending
+M144,Traction,AST091,S11,8.4,Transformer Inspection,Medium,No,2026-09-22,1.0,Completed
+M145,Traction,AST085,S10,2.0,Sectioning Equipment Check,Low,No,2026-09-26,0.5,Completed
+M152,Traction,AST072,S14,0.6,Sectioning Equipment Check,Medium,No,2026-09-10,1.5,Pending
+M156,Traction,AST093,S14,7.0,Pantograph Clearance Check,High,No,2026-09-03,1.5,Pending
+M157,Traction,AST083,S06,2.8,Transformer Inspection,Low,No,2026-09-30,0.5,Ongoing
+M158,Traction,AST098,S14,12.6,OHE Component Repair,Low,No,2026-09-28,0.5,Pending
+M160,Traction,AST080,S05,24.1,Transformer Inspection,Critical,No,2026-09-28,1.5,Ongoing
+M163,Traction,AST089,S06,25.3,OHE Inspection,High,Yes,2026-10-04,2.0,Ongoing
+M166,Traction,AST076,S18,19.9,Pantograph Clearance Check,Critical,Yes,2026-09-21,2.5,Ongoing
+M176,Traction,AST092,S13,1.7,Transformer Inspection,Medium,No,2026-09-27,0.5,Pending
+M181,Traction,AST097,S13,2.6,Transformer Inspection,Medium,No,2026-08-28,0.5,Pending
+M184,Traction,AST080,S05,24.1,Pantograph Clearance Check,Low,No,2026-09-29,1.0,Ongoing
+M195,Traction,AST071,S16,20.6,OHE Component Repair,High,No,2026-09-16,1.5,Completed
+M201,Traction,AST085,S10,2.0,Sectioning Equipment Check,Medium,No,2026-08-29,1.0,Completed
+M202,Traction,AST098,S14,12.6,OHE Component Repair,Medium,No,2026-09-02,1.5,Pending
+M206,Traction,AST070,S11,9.6,Pantograph Clearance Check,High,Yes,2026-09-28,1.0,Completed
+M207,Traction,AST092,S13,1.7,Sectioning Equipment Check,Low,No,2026-08-29,1.0,Pending
+M210,Traction,AST098,S14,12.6,Sectioning Equipment Check,High,Yes,2026-09-21,1.5,Pending
+M212,Traction,AST070,S11,9.6,Pantograph Clearance Check,Medium,No,2026-08-26,1.0,Completed
+M216,Traction,AST090,S04,6.1,Pantograph Clearance Check,Medium,No,2026-08-29,1.0,Pending
+M217,Traction,AST086,S13,2.4,Sectioning Equipment Check,Medium,No,2026-09-10,1.5,Pending
+M223,Traction,AST069,S18,6.5,Transformer Inspection,Critical,No,2026-09-07,1.5,Ongoing
+M227,Traction,AST074,S15,18.0,OHE Inspection,Low,No,2026-09-15,1.0,Ongoing
+M233,Traction,AST094,S07,13.8,Sectioning Equipment Check,High,Yes,2026-09-27,1.5,Ongoing
+M238,Traction,AST089,S06,25.3,OHE Component Repair,Medium,No,2026-09-30,1.5,Ongoing
+M245,Traction,AST099,S06,15.0,OHE Inspection,Medium,No,2026-09-30,0.5,Ongoing
+M246,Traction,AST091,S11,8.4,Sectioning Equipment Check,Medium,No,2026-09-10,1.0,Completed
+M250,Traction,AST076,S18,19.9,OHE Inspection,Medium,No,2026-09-19,1.0,Ongoing
+M254,Traction,AST081,S01,18.6,Transformer Inspection,Low,No,2026-09-01,1.0,Pending
+M257,Traction,AST075,S04,13.2,Sectioning Equipment Check,Low,No,2026-10-01,1.0,Pending
+M258,Traction,AST096,S10,2.7,Sectioning Equipment Check,Medium,No,2026-10-02,1.5,Completed
+M260,Traction,AST097,S13,2.6,Sectioning Equipment Check,Medium,No,2026-09-10,0.5,Pending
+M263,Traction,AST076,S18,19.9,OHE Inspection,Critical,Yes,2026-09-20,2.0,Ongoing
+M265,Traction,AST070,S11,9.6,OHE Component Repair,Low,No,2026-09-01,0.5,Completed
+M271,Traction,AST092,S13,1.7,Sectioning Equipment Check,High,Yes,2026-09-29,1.5,Pending
+M274,Traction,AST090,S04,6.1,OHE Component Repair,High,Yes,2026-09-10,1.0,Pending
+M279,Traction,AST092,S13,1.7,Pantograph Clearance Check,Critical,Yes,2026-09-09,2.0,Pending
+M280,Traction,AST069,S18,6.5,Pantograph Clearance Check,Low,No,2026-10-01,0.5,Ongoing
+M282,Traction,AST095,S20,5.4,OHE Inspection,Medium,No,2026-09-14,1.0,Completed
+M283,Traction,AST082,S14,11.6,Pantograph Clearance Check,High,Yes,2026-09-10,2.0,Pending
+M284,Traction,AST074,S15,18.0,Pantograph Clearance Check,High,Yes,2026-09-08,1.0,Ongoing
+M286,Traction,AST098,S14,12.6,OHE Component Repair,Low,No,2026-08-29,0.5,Pending
+M287,Traction,AST092,S13,1.7,Sectioning Equipment Check,Medium,No,2026-09-10,0.5,Pending
+M290,Traction,AST079,S04,10.9,Transformer Inspection,Medium,No,2026-09-08,1.0,Pending
+M291,Traction,AST080,S05,24.1,OHE Inspection,Medium,No,2026-09-30,1.0,Ongoing
+M294,Traction,AST099,S06,15.0,OHE Inspection,Medium,No,2026-09-11,1.5,Ongoing
+M295,Traction,AST082,S14,11.6,OHE Inspection,Medium,No,2026-09-09,0.5,Pending
+M297,Traction,AST082,S14,11.6,OHE Inspection,Low,No,2026-09-03,1.0,Pending
+M299,Traction,AST073,S05,27.3,OHE Component Repair,Critical,Yes,2026-09-05,2.5,Ongoing

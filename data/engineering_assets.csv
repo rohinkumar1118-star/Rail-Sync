@@ -1,0 +1,35 @@
+asset_id,asset_type,department,section,location_km,importance,last_maintenance
+AST001,Point Machine,Engineering,S06,11.1,Medium,2026-08-05
+AST002,Bridge,Engineering,S07,3.3,Medium,2026-08-04
+AST003,Bridge,Engineering,S12,13.0,High,2026-08-24
+AST004,Point Machine,Engineering,S15,3.2,Medium,2026-08-03
+AST005,Bridge,Engineering,S18,19.8,Low,2026-08-12
+AST006,Track,Engineering,S19,21.1,High,2026-08-22
+AST007,Bridge,Engineering,S08,10.1,High,2026-08-04
+AST008,Bridge,Engineering,S13,3.9,Medium,2026-08-06
+AST009,Bridge,Engineering,S12,4.5,Medium,2026-08-23
+AST010,Point Machine,Engineering,S03,9.8,Low,2026-08-24
+AST011,Track,Engineering,S08,4.8,Medium,2026-08-21
+AST012,Track,Engineering,S18,16.4,High,2026-08-08
+AST013,Bridge,Engineering,S02,3.5,High,2026-08-07
+AST014,Point Machine,Engineering,S19,9.4,Low,2026-08-16
+AST015,Point Machine,Engineering,S13,4.0,Medium,2026-08-05
+AST016,Point Machine,Engineering,S08,5.8,Medium,2026-08-24
+AST017,Bridge,Engineering,S19,26.8,Medium,2026-08-12
+AST018,Track,Engineering,S08,5.2,High,2026-08-25
+AST019,Track,Engineering,S02,1.3,High,2026-08-26
+AST020,Point Machine,Engineering,S14,0.9,Medium,2026-08-20
+AST021,Point Machine,Engineering,S15,6.4,Low,2026-08-01
+AST022,Point Machine,Engineering,S04,12.4,Medium,2026-08-25
+AST023,Track,Engineering,S11,4.1,High,2026-08-15
+AST024,Point Machine,Engineering,S01,22.2,Medium,2026-08-17
+AST025,Point Machine,Engineering,S06,24.0,Low,2026-08-10
+AST026,Point Machine,Engineering,S17,2.8,Medium,2026-08-25
+AST027,Point Machine,Engineering,S06,25.1,Low,2026-08-01
+AST028,Bridge,Engineering,S20,4.0,High,2026-08-12
+AST029,Track,Engineering,S10,0.5,Low,2026-08-03
+AST030,Point Machine,Engineering,S03,7.5,High,2026-08-25
+AST031,Track,Engineering,S18,3.1,Medium,2026-08-18
+AST032,Bridge,Engineering,S06,13.9,Low,2026-08-14
+AST033,Point Machine,Engineering,S07,24.2,Low,2026-08-07
+AST034,Bridge,Engineering,S10,8.8,Low,2026-08-12

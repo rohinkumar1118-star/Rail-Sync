@@ -1,0 +1,108 @@
+task_id,department,asset_id,section,location_km,task_type,severity,safety_critical,due_date,estimated_duration_hours,status
+M003,S&T,AST063,S15,25.5,Axle Counter Testing,High,Yes,2026-09-10,2.0,Ongoing
+M004,S&T,AST039,S03,3.7,Signal Fault Repair,Medium,No,2026-09-19,0.5,Overdue
+M005,S&T,AST045,S04,2.7,Signal Fault Repair,High,Yes,2026-09-09,2.0,Pending
+M006,S&T,AST053,S10,8.5,Cable Inspection,High,Yes,2026-09-24,1.5,Completed
+M009,S&T,AST052,S18,17.2,Axle Counter Testing,Medium,No,2026-09-29,0.5,Ongoing
+M013,S&T,AST043,S14,11.6,Signal Inspection,Low,No,2026-09-26,1.0,Pending
+M018,S&T,AST066,S18,7.2,Signal Fault Repair,Medium,No,2026-08-27,0.5,Ongoing
+M022,S&T,AST051,S09,5.5,Cable Inspection,Medium,No,2026-09-29,1.0,Completed
+M023,S&T,AST035,S15,11.5,Signal Inspection,Critical,No,2026-09-26,1.0,Ongoing
+M024,S&T,AST045,S04,2.7,Interlocking Maintenance,Medium,No,2026-10-04,1.0,Pending
+M027,S&T,AST049,S08,4.2,Signal Inspection,Medium,No,2026-09-30,0.5,Ongoing
+M029,S&T,AST047,S03,12.4,Axle Counter Testing,High,Yes,2026-09-20,1.5,Overdue
+M031,S&T,AST065,S03,5.7,Signal Inspection,Medium,No,2026-09-02,0.5,Pending
+M034,S&T,AST048,S02,8.7,Axle Counter Testing,High,Yes,2026-09-26,1.0,Pending
+M040,S&T,AST035,S15,11.5,Interlocking Maintenance,Low,No,2026-10-03,0.5,Ongoing
+M044,S&T,AST049,S08,4.2,Interlocking Maintenance,Low,No,2026-09-23,1.0,Ongoing
+M045,S&T,AST059,S20,3.4,Signal Inspection,Critical,Yes,2026-10-01,1.0,Completed
+M046,S&T,AST067,S01,20.7,Signal Fault Repair,Low,No,2026-09-12,1.0,Pending
+M048,S&T,AST053,S10,8.5,Signal Fault Repair,Low,No,2026-09-13,1.0,Completed
+M052,S&T,AST054,S18,17.9,Signal Inspection,Critical,Yes,2026-08-31,1.5,Ongoing
+M054,S&T,AST052,S18,17.2,Interlocking Maintenance,High,Yes,2026-10-03,1.0,Ongoing
+M067,S&T,AST037,S19,0.2,Axle Counter Testing,High,Yes,2026-09-17,2.0,Pending
+M069,S&T,AST035,S15,11.5,Signal Fault Repair,Medium,No,2026-09-13,1.0,Ongoing
+M070,S&T,AST067,S01,20.7,Signal Inspection,Critical,No,2026-09-26,2.0,Pending
+M072,S&T,AST049,S08,4.2,Signal Inspection,Critical,Yes,2026-09-03,1.0,Ongoing
+M074,S&T,AST067,S01,20.7,Axle Counter Testing,Medium,No,2026-09-02,0.5,Pending
+M079,S&T,AST065,S03,5.7,Axle Counter Testing,High,Yes,2026-09-18,2.0,Pending
+M081,S&T,AST063,S15,25.5,Signal Fault Repair,Medium,No,2026-09-18,1.0,Ongoing
+M082,S&T,AST041,S16,17.8,Cable Inspection,Medium,No,2026-09-02,1.5,Completed
+M091,S&T,AST065,S03,5.7,Signal Fault Repair,Medium,No,2026-09-19,1.5,Pending
+M093,S&T,AST068,S04,3.7,Axle Counter Testing,Low,No,2026-09-20,1.0,Pending
+M094,S&T,AST066,S18,7.2,Signal Fault Repair,Medium,No,2026-09-18,1.0,Ongoing
+M111,S&T,AST057,S20,5.5,Signal Fault Repair,High,Yes,2026-09-14,1.0,Completed
+M112,S&T,AST038,S02,0.6,Signal Inspection,High,Yes,2026-09-07,1.5,Pending
+M113,S&T,AST061,S11,3.7,Signal Inspection,Medium,No,2026-09-07,0.5,Completed
+M114,S&T,AST053,S10,8.5,Interlocking Maintenance,Low,No,2026-09-24,1.0,Completed
+M115,S&T,AST047,S03,12.4,Interlocking Maintenance,High,Yes,2026-10-05,1.5,Pending
+M117,S&T,AST066,S18,7.2,Axle Counter Testing,High,Yes,2026-09-27,1.5,Ongoing
+M121,S&T,AST053,S10,8.5,Interlocking Maintenance,High,Yes,2026-09-19,1.5,Completed
+M122,S&T,AST037,S19,0.2,Interlocking Maintenance,High,No,2026-09-14,1.0,Pending
+M123,S&T,AST052,S18,17.2,Cable Inspection,Medium,No,2026-09-03,1.5,Ongoing
+M126,S&T,AST050,S13,1.4,Axle Counter Testing,High,Yes,2026-09-04,1.0,Pending
+M127,S&T,AST058,S04,3.4,Signal Inspection,Medium,No,2026-09-10,1.0,Pending
+M129,S&T,AST052,S18,17.2,Interlocking Maintenance,Medium,No,2026-09-27,0.5,Ongoing
+M132,S&T,AST048,S02,8.7,Interlocking Maintenance,Critical,Yes,2026-09-20,2.0,Pending
+M135,S&T,AST043,S14,11.6,Interlocking Maintenance,Medium,No,2026-09-04,1.0,Pending
+M138,S&T,AST039,S03,3.7,Axle Counter Testing,High,Yes,2026-08-31,1.0,Pending
+M139,S&T,AST050,S13,1.4,Signal Fault Repair,Critical,Yes,2026-09-18,2.0,Pending
+M142,S&T,AST046,S05,5.1,Cable Inspection,Critical,Yes,2026-08-28,2.0,Ongoing
+M146,S&T,AST057,S20,5.5,Interlocking Maintenance,High,Yes,2026-09-15,1.0,Completed
+M147,S&T,AST059,S20,3.4,Interlocking Maintenance,Low,No,2026-09-05,0.5,Completed
+M149,S&T,AST038,S02,0.6,Signal Inspection,High,No,2026-09-04,1.0,Pending
+M151,S&T,AST044,S04,5.6,Axle Counter Testing,Medium,No,2026-09-23,0.5,Pending
+M153,S&T,AST055,S19,15.0,Axle Counter Testing,High,Yes,2026-09-11,1.0,Pending
+M159,S&T,AST045,S04,2.7,Signal Inspection,High,Yes,2026-09-28,1.0,Pending
+M161,S&T,AST040,S07,4.2,Cable Inspection,Medium,No,2026-09-17,1.0,Ongoing
+M171,S&T,AST066,S18,7.2,Signal Fault Repair,Medium,No,2026-09-27,0.5,Ongoing
+M172,S&T,AST067,S01,20.7,Signal Fault Repair,Low,No,2026-10-03,0.5,Pending
+M173,S&T,AST040,S07,4.2,Signal Fault Repair,Medium,No,2026-09-18,0.5,Ongoing
+M174,S&T,AST055,S19,15.0,Cable Inspection,Medium,No,2026-09-18,1.0,Pending
+M175,S&T,AST065,S03,5.7,Signal Inspection,High,Yes,2026-09-01,1.5,Pending
+M179,S&T,AST053,S10,8.5,Cable Inspection,Critical,Yes,2026-09-02,2.5,Completed
+M183,S&T,AST056,S02,0.7,Interlocking Maintenance,Medium,No,2026-09-30,1.0,Pending
+M185,S&T,AST042,S04,9.2,Signal Inspection,Medium,No,2026-09-12,1.0,Pending
+M186,S&T,AST042,S04,9.2,Interlocking Maintenance,Low,No,2026-09-15,1.0,Pending
+M187,S&T,AST050,S13,1.4,Interlocking Maintenance,Medium,No,2026-09-20,1.0,Pending
+M188,S&T,AST051,S09,5.5,Signal Inspection,High,Yes,2026-09-23,2.0,Completed
+M189,S&T,AST062,S10,2.8,Signal Inspection,Medium,No,2026-09-30,0.5,Completed
+M190,S&T,AST066,S18,7.2,Interlocking Maintenance,Medium,No,2026-10-05,0.5,Ongoing
+M191,S&T,AST061,S11,3.7,Axle Counter Testing,High,Yes,2026-09-03,2.0,Completed
+M197,S&T,AST044,S04,5.6,Signal Inspection,High,Yes,2026-09-16,2.0,Pending
+M200,S&T,AST042,S04,9.2,Interlocking Maintenance,Medium,No,2026-09-16,1.5,Pending
+M203,S&T,AST051,S09,5.5,Axle Counter Testing,Low,No,2026-09-04,1.0,Completed
+M209,S&T,AST064,S18,12.1,Interlocking Maintenance,Critical,Yes,2026-08-30,1.0,Ongoing
+M213,S&T,AST060,S17,13.1,Signal Inspection,Medium,No,2026-09-10,0.5,Pending
+M214,S&T,AST052,S18,17.2,Signal Fault Repair,High,Yes,2026-09-21,1.0,Ongoing
+M215,S&T,AST057,S20,5.5,Axle Counter Testing,Low,No,2026-10-03,0.5,Completed
+M218,S&T,AST049,S08,4.2,Cable Inspection,Critical,Yes,2026-10-02,1.5,Ongoing
+M221,S&T,AST065,S03,5.7,Signal Inspection,Low,No,2026-09-21,1.0,Pending
+M228,S&T,AST066,S18,7.2,Interlocking Maintenance,Medium,No,2026-09-04,1.5,Ongoing
+M229,S&T,AST036,S03,0.3,Cable Inspection,Medium,No,2026-09-09,0.5,Pending
+M230,S&T,AST057,S20,5.5,Axle Counter Testing,Medium,No,2026-09-11,1.5,Completed
+M234,S&T,AST041,S16,17.8,Cable Inspection,Low,No,2026-08-26,1.0,Completed
+M236,S&T,AST060,S17,13.1,Axle Counter Testing,Medium,No,2026-09-17,0.5,Pending
+M237,S&T,AST052,S18,17.2,Signal Fault Repair,Medium,No,2026-09-09,0.5,Ongoing
+M239,S&T,AST058,S04,3.4,Signal Inspection,Low,No,2026-09-16,0.5,Pending
+M241,S&T,AST047,S03,12.4,Axle Counter Testing,Critical,Yes,2026-09-15,1.0,Pending
+M243,S&T,AST046,S05,5.1,Signal Inspection,High,Yes,2026-08-31,1.0,Ongoing
+M247,S&T,AST038,S02,0.6,Interlocking Maintenance,High,Yes,2026-09-15,1.0,Pending
+M248,S&T,AST051,S09,5.5,Axle Counter Testing,Medium,No,2026-09-01,0.5,Completed
+M249,S&T,AST052,S18,17.2,Cable Inspection,Low,No,2026-09-01,0.5,Ongoing
+M255,S&T,AST058,S04,3.4,Interlocking Maintenance,Medium,No,2026-09-16,1.0,Pending
+M261,S&T,AST057,S20,5.5,Cable Inspection,Low,No,2026-10-02,1.0,Completed
+M266,S&T,AST062,S10,2.8,Axle Counter Testing,Medium,No,2026-09-24,1.0,Completed
+M268,S&T,AST061,S11,3.7,Interlocking Maintenance,High,Yes,2026-09-05,2.0,Completed
+M270,S&T,AST057,S20,5.5,Signal Inspection,Medium,No,2026-09-23,0.5,Completed
+M273,S&T,AST045,S04,2.7,Cable Inspection,Medium,No,2026-09-24,1.5,Pending
+M275,S&T,AST039,S03,3.7,Signal Inspection,Low,No,2026-10-03,1.0,Pending
+M277,S&T,AST065,S03,5.7,Cable Inspection,Medium,No,2026-08-26,0.5,Pending
+M278,S&T,AST061,S11,3.7,Axle Counter Testing,Low,No,2026-09-21,1.0,Completed
+M281,S&T,AST037,S19,0.2,Axle Counter Testing,Medium,No,2026-09-29,1.0,Pending
+M285,S&T,AST040,S07,4.2,Signal Inspection,High,Yes,2026-09-13,2.0,Ongoing
+M288,S&T,AST048,S02,8.7,Interlocking Maintenance,High,Yes,2026-08-31,2.0,Pending
+M289,S&T,AST049,S08,4.2,Interlocking Maintenance,Low,No,2026-09-15,1.0,Ongoing
+M293,S&T,AST047,S03,12.4,Interlocking Maintenance,Low,No,2026-09-07,0.5,Pending
+M296,S&T,AST042,S04,9.2,Signal Fault Repair,High,Yes,2026-09-09,1.0,Pending
+M298,S&T,AST039,S03,3.7,Signal Inspection,High,Yes,2026-09-18,1.0,Pending

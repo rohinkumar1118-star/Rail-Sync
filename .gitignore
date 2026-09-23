@@ -1,8 +1,9 @@
-frontend/.env.venv/
+frontend/.env
+.venv/
 __pycache__/
 *.pyc
 node_modules/
 frontend/dist/
 backend/storage/runtime/*.csv
 backend/storage/state.json
-frontend/.env
+outputs/

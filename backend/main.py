@@ -10,6 +10,7 @@ import re
 import pandas as pd
 
 from backend.services.optimizer import optimize_data
+from backend.services.maintenance_data import merge_department_tasks, merge_department_assets, department_upload_status
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -34,11 +35,27 @@ app.add_middleware(
 )
 
 DATASETS = {
+    # Legacy unified maintenance upload is kept for backward compatibility.
     "maintenance": ("maintenance_tasks.csv", [
         "task_id","department","asset_id","section","severity","safety_critical",
         "due_date","estimated_duration_hours","status"
     ]),
     "assets": ("assets.csv", ["asset_id","department","section","importance"]),
+    "engineering_tasks": ("engineering_tasks.csv", [
+        "task_id","department","asset_id","section","severity","safety_critical",
+        "due_date","estimated_duration_hours","status"
+    ]),
+    "snt_tasks": ("snt_tasks.csv", [
+        "task_id","department","asset_id","section","severity","safety_critical",
+        "due_date","estimated_duration_hours","status"
+    ]),
+    "traction_tasks": ("traction_tasks.csv", [
+        "task_id","department","asset_id","section","severity","safety_critical",
+        "due_date","estimated_duration_hours","status"
+    ]),
+    "engineering_assets": ("engineering_assets.csv", ["asset_id","department","section","importance"]),
+    "snt_assets": ("snt_assets.csv", ["asset_id","department","section","importance"]),
+    "traction_assets": ("traction_assets.csv", ["asset_id","department","section","importance"]),
     "trains": ("train_schedule.csv", [
         "train_id","section","date","arrival_time","departure_time"
     ]),
@@ -72,11 +89,11 @@ class SimulationRequest(BaseModel):
 
 def read_state():
     if not STATE_FILE.exists():
-        return {"approvals": {}, "history": [], "last_run": None}
+        return {"approvals": {}, "history": [], "last_run": None, "plan_generated": False}
     try:
         return json.loads(STATE_FILE.read_text(encoding="utf-8"))
     except Exception:
-        return {"approvals": {}, "history": [], "last_run": None}
+        return {"approvals": {}, "history": [], "last_run": None, "plan_generated": False}
 
 def write_state(state):
     STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
@@ -244,28 +261,98 @@ def tasks_by_department(department: str):
 @app.post("/api/upload")
 async def upload_dataset(dataset_type: str = Form(...), file: UploadFile = File(...)):
     if dataset_type not in DATASETS:
-        raise HTTPException(status_code=400, detail=f"Unknown dataset type. Use: {', '.join(DATASETS)}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown dataset type. Use: {', '.join(DATASETS)}"
+        )
     if not file.filename.lower().endswith(".csv"):
         raise HTTPException(status_code=400, detail="Only CSV files are supported in this prototype.")
+
     content = await file.read()
     target_name, required = DATASETS[dataset_type]
     target = RUNTIME / target_name
     target.write_bytes(content)
+
     try:
         df = pd.read_csv(target)
     except Exception as e:
         target.unlink(missing_ok=True)
         raise HTTPException(status_code=400, detail=f"Invalid CSV: {e}")
+
+    # Department-wise maintenance tasks/assets are stored separately and then
+    # merged into the unified files consumed by the existing optimizer.
+    department_task_map = {
+        "engineering_tasks": "Engineering",
+        "snt_tasks": "S&T",
+        "traction_tasks": "Traction",
+    }
+    department_asset_map = {
+        "engineering_assets": "Engineering",
+        "snt_assets": "S&T",
+        "traction_assets": "Traction",
+    }
+
+    if dataset_type in department_task_map:
+        department = department_task_map[dataset_type]
+        if "department" not in df.columns:
+            df["department"] = department
+        else:
+            df["department"] = department
+    elif dataset_type in department_asset_map:
+        department = department_asset_map[dataset_type]
+        if "department" not in df.columns:
+            df["department"] = department
+        else:
+            df["department"] = department
+
     missing, warnings = validate_df(df, required)
     if missing:
         target.unlink(missing_ok=True)
-        raise HTTPException(status_code=400, detail=f"Missing required columns: {', '.join(missing)}")
-    add_history("DATASET_UPLOADED", f"{dataset_type}: {len(df)} records from {file.filename}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Missing required columns: {', '.join(missing)}"
+        )
+
+    # Persist the normalized department label.
+    df.to_csv(target, index=False)
+
+    merged_info = None
+    if dataset_type in department_task_map:
+        merged = merge_department_tasks(RUNTIME, DATA)
+        merged_info = {"unified_file": "maintenance_tasks.csv", "total_records": len(merged)}
+    elif dataset_type in department_asset_map:
+        merged = merge_department_assets(RUNTIME, DATA)
+        merged_info = {"unified_file": "assets.csv", "total_records": len(merged)}
+
+    state = read_state()
+    state["plan_generated"] = False
+    state["last_run"] = None
+    write_state(state)
+    add_history(
+        "DATASET_UPLOADED",
+        f"{dataset_type}: {len(df)} records from {file.filename}"
+    )
     return {
-        "success": True, "dataset_type": dataset_type, "filename": file.filename,
-        "records": len(df), "columns": list(df.columns), "warnings": warnings,
-        "valid_records": max(0, len(df) - len(warnings))
+        "success": True,
+        "dataset_type": dataset_type,
+        "filename": file.filename,
+        "records": len(df),
+        "columns": list(df.columns),
+        "warnings": warnings,
+        "valid_records": max(0, len(df) - len(warnings)),
+        "merged": merged_info,
     }
+
+@app.get("/api/maintenance/upload-status")
+def maintenance_upload_status():
+    result = department_upload_status(RUNTIME, DATA)
+    result["all_uploaded"] = all(
+        result["tasks"][d]["uploaded"] for d in ("Engineering", "S&T", "Traction")
+    ) and all(
+        result["assets"][d]["uploaded"] for d in ("Engineering", "S&T", "Traction")
+    )
+    result["plan_generated"] = bool(read_state().get("plan_generated", False))
+    return result
 
 @app.post("/api/validate")
 def validate_datasets():
@@ -296,6 +383,7 @@ def optimize(reason: str = "Manual optimization run"):
     state = read_state()
     state["approvals"] = {b: "pending_approval" for b in
                           pd.read_csv(OUT / "live_optimized_block_plan.csv")["block_id"].astype(str).tolist()}
+    state["plan_generated"] = True
     state["last_run"] = {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "reason": reason, "result": result

@@ -1,0 +1,88 @@
+task_id,department,asset_id,section,location_km,task_type,severity,safety_critical,due_date,estimated_duration_hours,status
+M001,Engineering,AST004,S15,3.2,Point Maintenance,Medium,No,2026-09-24,1.5,Ongoing
+M007,Engineering,AST031,S18,3.1,Point Maintenance,High,Yes,2026-09-25,1.5,Overdue
+M008,Engineering,AST014,S19,9.4,Track Geometry Correction,Medium,No,2026-09-12,1.5,Pending
+M012,Engineering,AST016,S08,5.8,Ballast Inspection,Medium,No,2026-09-19,1.5,Ongoing
+M015,Engineering,AST004,S15,3.2,Track Geometry Correction,High,No,2026-09-06,1.5,Ongoing
+M020,Engineering,AST023,S11,4.1,Rail Crack Repair,High,Yes,2026-09-14,1.5,Completed
+M026,Engineering,AST011,S08,4.8,Sleeper Replacement,Medium,No,2026-09-06,1.0,Ongoing
+M030,Engineering,AST015,S13,4.0,Sleeper Replacement,Medium,No,2026-09-22,1.5,Overdue
+M041,Engineering,AST027,S06,25.1,Ballast Inspection,Low,No,2026-08-30,0.5,Ongoing
+M042,Engineering,AST004,S15,3.2,Track Geometry Correction,Medium,No,2026-09-04,0.5,Ongoing
+M043,Engineering,AST015,S13,4.0,Ballast Inspection,Medium,No,2026-09-23,1.5,Overdue
+M047,Engineering,AST024,S01,22.2,Sleeper Replacement,Low,No,2026-09-16,0.5,Pending
+M050,Engineering,AST018,S08,5.2,Track Geometry Correction,Medium,No,2026-10-04,1.0,Ongoing
+M055,Engineering,AST012,S18,16.4,Track Geometry Correction,Medium,No,2026-08-26,1.0,Ongoing
+M058,Engineering,AST015,S13,4.0,Point Maintenance,Medium,No,2026-09-19,0.5,Pending
+M059,Engineering,AST003,S12,13.0,Rail Crack Repair,Medium,No,2026-09-01,1.5,Completed
+M065,Engineering,AST021,S15,6.4,Track Geometry Correction,Medium,No,2026-10-04,1.5,Ongoing
+M066,Engineering,AST021,S15,6.4,Sleeper Replacement,Medium,No,2026-09-24,0.5,Ongoing
+M073,Engineering,AST013,S02,3.5,Sleeper Replacement,Medium,No,2026-09-28,1.0,Pending
+M075,Engineering,AST024,S01,22.2,Ballast Inspection,Medium,No,2026-08-31,1.0,Pending
+M077,Engineering,AST002,S07,3.3,Sleeper Replacement,Medium,No,2026-10-04,0.5,Ongoing
+M083,Engineering,AST023,S11,4.1,Point Maintenance,Critical,Yes,2026-09-10,1.5,Completed
+M088,Engineering,AST006,S19,21.1,Ballast Inspection,High,Yes,2026-09-09,2.0,Pending
+M097,Engineering,AST021,S15,6.4,Point Maintenance,Medium,No,2026-09-04,0.5,Ongoing
+M098,Engineering,AST002,S07,3.3,Point Maintenance,Medium,No,2026-10-01,1.5,Ongoing
+M099,Engineering,AST022,S04,12.4,Sleeper Replacement,Medium,No,2026-08-27,1.5,Pending
+M100,Engineering,AST019,S02,1.3,Rail Crack Repair,High,No,2026-10-01,1.0,Pending
+M101,Engineering,AST018,S08,5.2,Sleeper Replacement,Medium,No,2026-09-19,1.0,Ongoing
+M103,Engineering,AST020,S14,0.9,Sleeper Replacement,High,Yes,2026-09-22,2.0,Pending
+M105,Engineering,AST016,S08,5.8,Track Geometry Correction,Critical,Yes,2026-10-03,1.0,Ongoing
+M107,Engineering,AST004,S15,3.2,Rail Crack Repair,Medium,No,2026-09-29,1.5,Ongoing
+M108,Engineering,AST024,S01,22.2,Point Maintenance,Critical,Yes,2026-09-24,1.0,Pending
+M109,Engineering,AST023,S11,4.1,Track Geometry Correction,Low,No,2026-09-13,1.0,Completed
+M116,Engineering,AST026,S17,2.8,Sleeper Replacement,Medium,No,2026-09-24,0.5,Pending
+M131,Engineering,AST020,S14,0.9,Ballast Inspection,High,Yes,2026-09-27,1.5,Pending
+M133,Engineering,AST012,S18,16.4,Sleeper Replacement,Medium,No,2026-09-01,0.5,Ongoing
+M141,Engineering,AST020,S14,0.9,Rail Crack Repair,Low,No,2026-09-25,1.0,Pending
+M148,Engineering,AST024,S01,22.2,Sleeper Replacement,Low,No,2026-09-12,1.0,Pending
+M150,Engineering,AST008,S13,3.9,Ballast Inspection,Medium,No,2026-09-18,0.5,Pending
+M154,Engineering,AST007,S08,10.1,Sleeper Replacement,High,No,2026-09-23,2.0,Ongoing
+M155,Engineering,AST003,S12,13.0,Sleeper Replacement,High,Yes,2026-09-13,1.0,Completed
+M162,Engineering,AST011,S08,4.8,Point Maintenance,Medium,No,2026-10-04,1.5,Ongoing
+M164,Engineering,AST034,S10,8.8,Ballast Inspection,Medium,No,2026-09-08,1.5,Completed
+M165,Engineering,AST013,S02,3.5,Sleeper Replacement,Medium,No,2026-09-14,1.5,Pending
+M167,Engineering,AST027,S06,25.1,Sleeper Replacement,Medium,No,2026-09-17,1.0,Ongoing
+M168,Engineering,AST010,S03,9.8,Ballast Inspection,High,Yes,2026-09-10,1.0,Pending
+M169,Engineering,AST034,S10,8.8,Track Geometry Correction,Low,No,2026-09-10,1.0,Completed
+M170,Engineering,AST022,S04,12.4,Rail Crack Repair,Low,No,2026-09-27,1.0,Pending
+M177,Engineering,AST007,S08,10.1,Track Geometry Correction,Low,No,2026-09-04,1.0,Ongoing
+M178,Engineering,AST023,S11,4.1,Point Maintenance,Medium,No,2026-10-02,1.5,Completed
+M180,Engineering,AST012,S18,16.4,Track Geometry Correction,Medium,No,2026-08-29,1.5,Ongoing
+M182,Engineering,AST007,S08,10.1,Rail Crack Repair,Low,No,2026-09-08,1.0,Ongoing
+M192,Engineering,AST011,S08,4.8,Rail Crack Repair,Medium,No,2026-09-13,1.5,Ongoing
+M193,Engineering,AST012,S18,16.4,Rail Crack Repair,Medium,No,2026-09-29,1.0,Ongoing
+M194,Engineering,AST029,S10,0.5,Rail Crack Repair,Medium,No,2026-09-26,1.0,Completed
+M196,Engineering,AST033,S07,24.2,Ballast Inspection,Low,No,2026-09-12,0.5,Ongoing
+M198,Engineering,AST015,S13,4.0,Track Geometry Correction,Medium,No,2026-09-22,1.0,Pending
+M199,Engineering,AST030,S03,7.5,Track Geometry Correction,Low,No,2026-09-15,1.0,Pending
+M204,Engineering,AST027,S06,25.1,Point Maintenance,Low,No,2026-09-29,0.5,Ongoing
+M205,Engineering,AST011,S08,4.8,Point Maintenance,Medium,No,2026-08-30,1.5,Ongoing
+M208,Engineering,AST025,S06,24.0,Track Geometry Correction,Low,No,2026-09-14,0.5,Ongoing
+M211,Engineering,AST001,S06,11.1,Point Maintenance,High,Yes,2026-09-17,1.0,Ongoing
+M219,Engineering,AST027,S06,25.1,Track Geometry Correction,Medium,No,2026-09-19,1.0,Ongoing
+M220,Engineering,AST025,S06,24.0,Ballast Inspection,High,Yes,2026-09-25,1.0,Ongoing
+M222,Engineering,AST030,S03,7.5,Rail Crack Repair,High,No,2026-09-18,2.0,Pending
+M224,Engineering,AST032,S06,13.9,Point Maintenance,Critical,Yes,2026-09-07,1.0,Ongoing
+M225,Engineering,AST034,S10,8.8,Point Maintenance,Medium,No,2026-09-10,1.0,Completed
+M226,Engineering,AST021,S15,6.4,Rail Crack Repair,Medium,No,2026-09-11,1.0,Ongoing
+M231,Engineering,AST009,S12,4.5,Track Geometry Correction,Medium,No,2026-09-05,1.5,Completed
+M232,Engineering,AST015,S13,4.0,Track Geometry Correction,Critical,Yes,2026-08-30,1.0,Pending
+M235,Engineering,AST014,S19,9.4,Track Geometry Correction,Critical,Yes,2026-09-22,1.5,Pending
+M240,Engineering,AST029,S10,0.5,Point Maintenance,Low,No,2026-09-12,1.0,Completed
+M242,Engineering,AST014,S19,9.4,Ballast Inspection,Medium,No,2026-09-05,1.0,Pending
+M244,Engineering,AST012,S18,16.4,Ballast Inspection,Medium,No,2026-10-03,0.5,Ongoing
+M251,Engineering,AST012,S18,16.4,Track Geometry Correction,Medium,No,2026-10-01,1.0,Ongoing
+M252,Engineering,AST019,S02,1.3,Sleeper Replacement,Medium,No,2026-09-26,0.5,Pending
+M253,Engineering,AST022,S04,12.4,Point Maintenance,Low,No,2026-08-30,1.0,Pending
+M256,Engineering,AST019,S02,1.3,Sleeper Replacement,Medium,No,2026-09-25,1.0,Pending
+M259,Engineering,AST020,S14,0.9,Ballast Inspection,Medium,No,2026-09-23,0.5,Pending
+M262,Engineering,AST004,S15,3.2,Track Geometry Correction,Medium,No,2026-09-29,0.5,Ongoing
+M264,Engineering,AST010,S03,9.8,Sleeper Replacement,Medium,No,2026-09-23,1.0,Pending
+M267,Engineering,AST031,S18,3.1,Rail Crack Repair,Low,No,2026-09-15,0.5,Ongoing
+M269,Engineering,AST012,S18,16.4,Ballast Inspection,Low,No,2026-09-09,0.5,Ongoing
+M272,Engineering,AST001,S06,11.1,Point Maintenance,Low,No,2026-09-28,1.0,Ongoing
+M276,Engineering,AST033,S07,24.2,Ballast Inspection,High,Yes,2026-09-26,1.0,Ongoing
+M292,Engineering,AST030,S03,7.5,Rail Crack Repair,Low,No,2026-08-27,1.0,Pending
+M300,Engineering,AST010,S03,9.8,Point Maintenance,Low,No,2026-09-08,0.5,Pending
